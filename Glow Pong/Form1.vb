@@ -2150,15 +2150,32 @@ Public Class Form1
     Private Sub DrawTitle()
 
 
-        Using Brush As New SolidBrush(Color.FromArgb(64, Color.DarkBlue))
+        Using Brush As New SolidBrush(Color.FromArgb(16, Color.DarkGoldenrod))
 
-            Buffer.Graphics.DrawString("⁕⁕⁕⁕⁕⁕", New Font(TitleFont.FontFamily, TitleFont.Size + 45), Brush, TitleLocation, AlineCenterMiddle)
+            Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 3), Brush, TitleLocation, AlineCenterMiddle)
 
+        End Using
+
+        Using Brush As New SolidBrush(Color.FromArgb(25, Color.DarkGoldenrod))
+
+            Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 2), Brush, TitleLocation, AlineCenterMiddle)
+
+        End Using
+
+        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkGoldenrod))
+
+            Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 1), Brush, TitleLocation, AlineCenterMiddle)
+
+        End Using
+
+        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkGoldenrod))
+
+            Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 1), Brush, TitleLocation, AlineCenterMiddle)
 
         End Using
 
 
-        Buffer.Graphics.DrawString(TitleText, TitleFont, Brushes.SkyBlue, TitleLocation, AlineCenterMiddle)
+        Buffer.Graphics.DrawString(TitleText, TitleFont, Brushes.LightGoldenrodYellow, TitleLocation, AlineCenterMiddle)
 
 
     End Sub
@@ -2495,9 +2512,6 @@ Public Class Form1
 
     End Sub
 
-
-
-
     Private Sub DrawGlowingOrchid(Rect As Rectangle)
 
         Using Pen As New Pen(Color.FromArgb(32, Color.DarkOrchid), 25)
@@ -2531,7 +2545,6 @@ Public Class Form1
         End Using
 
     End Sub
-
 
     Private Sub DrawGlowingSkyBlue(Rect As Rectangle)
 
@@ -2628,6 +2641,3 @@ End Class
 'Strings used in Structures
 'https://learn.microsoft.com/en-us/dotnet/framework/interop/default-marshalling-for-strings#strings-used-in-structures
 '
-'Public Class Form1
-
-'End Class
