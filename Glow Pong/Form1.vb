@@ -74,7 +74,7 @@ Public Class Form1
 
     'Left Paddle Data *****************
     Private LeftPaddle As Rectangle
-    Private Const LeftPaddleSpeed As Integer = 8
+    Private Const LeftPaddleVelocity As Double = 0.5
     Private LeftPaddleScore As Integer
     Private LPadScoreLocation As Point
     Private ReadOnly LeftPaddleMidlinePen As New Pen(Color.Goldenrod, 7)
@@ -947,7 +947,7 @@ Public Class Form1
         If AControllerDown = True Then
 
             'Move left paddle down.
-            LeftPaddle.Y += LeftPaddleSpeed
+            LeftPaddle.Y += LeftPaddleVelocity
 
             'Is the left paddle below the playing field?
             If LeftPaddle.Y + LeftPaddle.Height > BottomWall Then
@@ -963,7 +963,7 @@ Public Class Form1
         If AControllerUp = True Then
 
             'Move left paddle up.
-            LeftPaddle.Y -= LeftPaddleSpeed
+            LeftPaddle.Y -= LeftPaddleVelocity
 
             'Is the left paddle above the playing field? 
             If LeftPaddle.Y < TopWall Then
@@ -979,7 +979,7 @@ Public Class Form1
         If AControllerTsDown = True Then
 
             'Move left paddle down.
-            LeftPaddle.Y += LeftPaddleSpeed
+            LeftPaddle.Y += LeftPaddleVelocity
 
             'Is the left paddle below the playing field?
             If LeftPaddle.Y + LeftPaddle.Height > BottomWall Then
@@ -995,7 +995,7 @@ Public Class Form1
         If AControllerTsUp = True Then
 
             'Move left paddle up.
-            LeftPaddle.Y -= LeftPaddleSpeed
+            LeftPaddle.Y -= LeftPaddleVelocity
 
             'Is the left paddle above the playing field? 
             If LeftPaddle.Y < TopWall Then
