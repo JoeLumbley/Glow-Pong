@@ -65,7 +65,7 @@ Public Class Form1
 
     'Ball Data *************************
     Private Ball As Rectangle
-    Private Const BallVelocity As Integer = 8
+    Private Const BallVelocity As Double = 0.5
     Private BallDirection As DirectionEnum
     Private ReadOnly BallMidlineUpPen As New Pen(Color.Green, 7)
     Private ReadOnly BallMidlineDownPen As New Pen(Color.Red, 7)
@@ -1894,7 +1894,6 @@ Public Class Form1
 
         End Using
 
-
         Buffer.Graphics.DrawString(RightPaddleScore, ScoreFont, Brushes.LightGreen, RPadScoreLocation, AlineCenterMiddle)
 
     End Sub
@@ -1925,40 +1924,31 @@ Public Class Form1
 
         End Using
 
-
-
         Buffer.Graphics.DrawString(LeftPaddleScore, ScoreFont, Brushes.LightPink, LPadScoreLocation, AlineCenterMiddle)
 
     End Sub
 
     Private Sub MoveBallRight()
 
-        'Ball.X += BallSpeed
-
-        'Rect.X += deltaTime.TotalMilliseconds * 0.5
-
-
-        Ball.X += deltaTime.TotalMilliseconds * 0.5
-
-
+        Ball.X += deltaTime.TotalMilliseconds * BallVelocity
 
     End Sub
 
     Private Sub MoveBallLeft()
 
-        Ball.X -= deltaTime.TotalMilliseconds * 0.5
+        Ball.X -= deltaTime.TotalMilliseconds * BallVelocity
 
     End Sub
 
     Private Sub MoveBallDown()
 
-        Ball.Y += deltaTime.TotalMilliseconds * 0.5
+        Ball.Y += deltaTime.TotalMilliseconds * BallVelocity
 
     End Sub
 
     Private Sub MoveBallUp()
 
-        Ball.Y -= deltaTime.TotalMilliseconds * 0.5
+        Ball.Y -= deltaTime.TotalMilliseconds * BallVelocity
 
     End Sub
 
