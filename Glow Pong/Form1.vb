@@ -83,7 +83,7 @@ Public Class Form1
 
     'Right Paddle Data *****************
     Private RightPaddle As Rectangle
-    Private Const RightPaddleSpeed As Integer = 8
+    Private Const RightPaddleVelocity As Double = 0.5
     Private RightPaddleScore As Integer
     Private RPadScoreLocation As Point
     '***********************************
@@ -679,7 +679,7 @@ Public Class Form1
             'Yes, the left player is pressing the W key down.
 
             'Move left paddle up.
-            LeftPaddle.Y -= LeftPaddleSpeed
+            LeftPaddle.Y -= deltaTime.TotalMilliseconds * 0.5
 
             'Is the left paddle above the playing field? 
             If LeftPaddle.Y < TopWall Then
@@ -697,7 +697,7 @@ Public Class Form1
             'Yes, the left player is pressing the S key down.
 
             'Move left paddle down.
-            LeftPaddle.Y += LeftPaddleSpeed
+            LeftPaddle.Y += deltaTime.TotalMilliseconds * 0.5
 
             'Is the left paddle below the playing field?
             If LeftPaddle.Y + LeftPaddle.Height > BottomWall Then
@@ -719,7 +719,7 @@ Public Class Form1
             'Yes, the right player is pressing the up arrow key down.
 
             'Move right paddle up.
-            RightPaddle.Y -= RightPaddleSpeed
+            RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity
 
             'Is the right paddle above the playing field?
             If RightPaddle.Y < TopWall Then
@@ -737,7 +737,7 @@ Public Class Form1
             'Yes, the right paddle player is pressing the down arrow key down.
 
             'Move right paddle down.
-            RightPaddle.Y += RightPaddleSpeed
+            RightPaddle.Y += deltaTime.TotalMilliseconds * RightPaddleVelocity
 
             'Is the right paddle below the playing field?
             If RightPaddle.Y + RightPaddle.Height > BottomWall Then
@@ -759,7 +759,7 @@ Public Class Form1
             'Yes, the right paddle player is rolling the mouse wheel up.
 
             'Move right paddle up.
-            RightPaddle.Y -= RightPaddleSpeed * 4
+            RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity * 4
 
             'Is the right paddle above the playing field?
             If RightPaddle.Y < TopWall Then
@@ -777,7 +777,7 @@ Public Class Form1
             'Yes, the right paddle player is rolling the mouse wheel down.
 
             'Move right paddle down.
-            RightPaddle.Y += RightPaddleSpeed * 4
+            RightPaddle.Y += deltaTime.TotalMilliseconds * RightPaddleVelocity * 4
 
             'Is the right paddle below the playing field?
             If RightPaddle.Y + RightPaddle.Height > BottomWall Then
@@ -811,7 +811,7 @@ Public Class Form1
         If AControllerDown = True Then
 
             'Move right paddle down.
-            RightPaddle.Y += deltaTime.TotalMilliseconds * 0.5
+            RightPaddle.Y += deltaTime.TotalMilliseconds * RightPaddleVelocity
 
             'Is the right paddle below the playing field?
             If RightPaddle.Y + RightPaddle.Height > BottomWall Then
@@ -827,7 +827,7 @@ Public Class Form1
         If AControllerUp = True Then
 
             'Move right paddle up.
-            RightPaddle.Y -= deltaTime.TotalMilliseconds * 0.5
+            RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity
 
             'Is the right paddle above the playing field?
             If RightPaddle.Y < TopWall Then
@@ -843,7 +843,7 @@ Public Class Form1
         If AControllerTsDown = True Then
 
             'Move right paddle down.
-            RightPaddle.Y += deltaTime.TotalMilliseconds * 0.5
+            RightPaddle.Y += deltaTime.TotalMilliseconds * RightPaddleVelocity
 
             'Is the right paddle below the playing field?
             If RightPaddle.Y + RightPaddle.Height > BottomWall Then
@@ -859,7 +859,7 @@ Public Class Form1
         If AControllerTsUp = True Then
 
             'Move right paddle up.
-            RightPaddle.Y -= deltaTime.TotalMilliseconds * 0.5
+            RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity
 
             'Is the right paddle above the playing field?
             If RightPaddle.Y < TopWall Then
@@ -879,7 +879,7 @@ Public Class Form1
         If BControllerDown = True Then
 
             'Move right paddle down.
-            RightPaddle.Y += RightPaddleSpeed
+            RightPaddle.Y += deltaTime.TotalMilliseconds * RightPaddleVelocity
 
             'Is the right paddle below the playing field?
             If RightPaddle.Y + RightPaddle.Height > BottomWall Then
@@ -895,7 +895,7 @@ Public Class Form1
         If BControllerUp = True Then
 
             'Move right paddle up.
-            RightPaddle.Y -= RightPaddleSpeed
+            RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity
 
             'Is the right paddle above the playing field?
             If RightPaddle.Y < TopWall Then
@@ -911,7 +911,7 @@ Public Class Form1
         If BControllerTsDown = True Then
 
             'Move right paddle down.
-            RightPaddle.Y += RightPaddleSpeed
+            RightPaddle.Y += deltaTime.TotalMilliseconds * RightPaddleVelocity
 
             'Is the right paddle below the playing field?
             If RightPaddle.Y + RightPaddle.Height > BottomWall Then
@@ -927,7 +927,7 @@ Public Class Form1
         If BControllerTsUp = True Then
 
             'Move right paddle up.
-            RightPaddle.Y -= RightPaddleSpeed
+            RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity
 
             'Is the right paddle above the playing field?
             If RightPaddle.Y < TopWall Then
