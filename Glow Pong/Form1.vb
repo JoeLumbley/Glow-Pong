@@ -1254,7 +1254,7 @@ Public Class Form1
 
             If AControllerB = True Or BControllerB = True Then
 
-                GameState = GameStateEnum.Serve
+                SetupGame()
 
                 PlayBounceSound()
 
@@ -1262,7 +1262,7 @@ Public Class Form1
 
             If AControllerX = True Or BControllerX = True Then
 
-                GameState = GameStateEnum.Serve
+                SetupGame()
 
                 PlayBounceSound()
 
@@ -1270,7 +1270,7 @@ Public Class Form1
 
             If SpaceBarDown = True Or BKeyDown = True Or XKeyDown = True Then
 
-                GameState = GameStateEnum.Serve
+                SetupGame()
 
                 PlayBounceSound()
 
@@ -1280,7 +1280,7 @@ Public Class Form1
 
             If AControllerA = True Or BControllerA = True Then
 
-                GameState = GameStateEnum.Serve
+                SetupGame()
 
                 PlayBounceSound()
 
@@ -1288,13 +1288,21 @@ Public Class Form1
 
             If SpaceBarDown = True Or AKeyDown = True Then
 
-                GameState = GameStateEnum.Serve
+                SetupGame()
 
                 PlayBounceSound()
 
             End If
 
         End If
+
+    End Sub
+
+    Private Sub SetupGame()
+
+        lastFrame = Now
+
+        GameState = GameStateEnum.Serve
 
     End Sub
 
