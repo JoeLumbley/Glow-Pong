@@ -65,7 +65,7 @@ Public Class Form1
 
     'Ball Data *************************
     Private Ball As Rectangle
-    Private Const BallSpeed As Integer = 8
+    Private Const BallVelocity As Integer = 8
     Private BallDirection As DirectionEnum
     Private ReadOnly BallMidlineUpPen As New Pen(Color.Green, 7)
     Private ReadOnly BallMidlineDownPen As New Pen(Color.Red, 7)
@@ -635,7 +635,7 @@ Public Class Form1
             'Yes, the ball is above the paddle.
 
             'Move the paddle up.
-            LeftPaddle.Y -= deltaTime.TotalMilliseconds * 0.5 - 1
+            LeftPaddle.Y -= deltaTime.TotalMilliseconds * LeftPaddleVelocity - 1
 
             'Is the paddle above the playing field? 
             If LeftPaddle.Y < TopWall Then
@@ -655,7 +655,7 @@ Public Class Form1
             'Yes, the ball is below the paddle.
 
             'Move the paddle down.
-            LeftPaddle.Y += deltaTime.TotalMilliseconds * 0.5 - 1
+            LeftPaddle.Y += deltaTime.TotalMilliseconds * LeftPaddleVelocity - 1
 
             'Is the paddle below the playing field?
             If LeftPaddle.Y + LeftPaddle.Height > BottomWall Then
@@ -679,7 +679,7 @@ Public Class Form1
             'Yes, the left player is pressing the W key down.
 
             'Move left paddle up.
-            LeftPaddle.Y -= deltaTime.TotalMilliseconds * 0.5
+            LeftPaddle.Y -= deltaTime.TotalMilliseconds * LeftPaddleVelocity
 
             'Is the left paddle above the playing field? 
             If LeftPaddle.Y < TopWall Then
@@ -697,7 +697,7 @@ Public Class Form1
             'Yes, the left player is pressing the S key down.
 
             'Move left paddle down.
-            LeftPaddle.Y += deltaTime.TotalMilliseconds * 0.5
+            LeftPaddle.Y += deltaTime.TotalMilliseconds * LeftPaddleVelocity
 
             'Is the left paddle below the playing field?
             If LeftPaddle.Y + LeftPaddle.Height > BottomWall Then
@@ -947,7 +947,7 @@ Public Class Form1
         If AControllerDown = True Then
 
             'Move left paddle down.
-            LeftPaddle.Y += LeftPaddleVelocity
+            LeftPaddle.Y += deltaTime.TotalMilliseconds * LeftPaddleVelocity
 
             'Is the left paddle below the playing field?
             If LeftPaddle.Y + LeftPaddle.Height > BottomWall Then
@@ -963,7 +963,7 @@ Public Class Form1
         If AControllerUp = True Then
 
             'Move left paddle up.
-            LeftPaddle.Y -= LeftPaddleVelocity
+            LeftPaddle.Y -= deltaTime.TotalMilliseconds * LeftPaddleVelocity
 
             'Is the left paddle above the playing field? 
             If LeftPaddle.Y < TopWall Then
@@ -979,7 +979,7 @@ Public Class Form1
         If AControllerTsDown = True Then
 
             'Move left paddle down.
-            LeftPaddle.Y += LeftPaddleVelocity
+            LeftPaddle.Y += deltaTime.TotalMilliseconds * LeftPaddleVelocity
 
             'Is the left paddle below the playing field?
             If LeftPaddle.Y + LeftPaddle.Height > BottomWall Then
@@ -995,7 +995,7 @@ Public Class Form1
         If AControllerTsUp = True Then
 
             'Move left paddle up.
-            LeftPaddle.Y -= LeftPaddleVelocity
+            LeftPaddle.Y -= deltaTime.TotalMilliseconds * LeftPaddleVelocity
 
             'Is the left paddle above the playing field? 
             If LeftPaddle.Y < TopWall Then
