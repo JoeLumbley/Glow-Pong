@@ -2152,23 +2152,23 @@ Public Class Form1
 
         Using Brush As New SolidBrush(Color.FromArgb(16, Color.DarkGoldenrod))
 
+            Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 4), Brush, TitleLocation, AlineCenterMiddle)
+
+        End Using
+
+        Using Brush As New SolidBrush(Color.FromArgb(16, Color.DarkGoldenrod))
+
             Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 3), Brush, TitleLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(25, Color.DarkGoldenrod))
+        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGoldenrod))
 
             Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 2), Brush, TitleLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkGoldenrod))
-
-            Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 1), Brush, TitleLocation, AlineCenterMiddle)
-
-        End Using
-
-        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkGoldenrod))
+        Using Brush As New SolidBrush(Color.FromArgb(75, Color.DarkGoldenrod))
 
             Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 1), Brush, TitleLocation, AlineCenterMiddle)
 
