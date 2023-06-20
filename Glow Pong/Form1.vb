@@ -122,7 +122,7 @@ Public Class Form1
     'Title Data *******************************************
     Private Const TitleText As String = "GLOW" & vbCrLf & "PONG"
     Private TitleLocation As New Point(ClientSize.Width \ 2, ClientSize.Height \ 2 - 125)
-    Private ReadOnly TitleFont As New Font(FontFamily.GenericSansSerif, 42)
+    Private ReadOnly TitleFont As New Font(FontFamily.GenericSansSerif, 48)
     '******************************************************
 
     'Keyboard Event Data **********************************
@@ -2156,19 +2156,19 @@ Public Class Form1
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
+        Using Brush As New SolidBrush(Color.FromArgb(40, Color.DarkGreen))
 
             Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 3), Brush, TitleLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
+        Using Brush As New SolidBrush(Color.FromArgb(64, Color.DarkGreen))
 
             Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 2), Brush, TitleLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(64, Color.DarkGreen))
+        Using Brush As New SolidBrush(Color.FromArgb(100, Color.DarkGreen))
 
             Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 1), Brush, TitleLocation, AlineCenterMiddle)
 
