@@ -120,7 +120,7 @@ Public Class Form1
     Private ReadOnly AlineCenter As New StringFormat
 
     'Title Data *******************************************
-    Private Const TitleText As String = "Glow PONG"
+    Private Const TitleText As String = "GLOW" & vbCrLf & "PONG"
     Private TitleLocation As New Point(ClientSize.Width \ 2, ClientSize.Height \ 2 - 125)
     Private ReadOnly TitleFont As New Font(FontFamily.GenericSansSerif, 42)
     '******************************************************
@@ -2150,32 +2150,32 @@ Public Class Form1
     Private Sub DrawTitle()
 
 
-        Using Brush As New SolidBrush(Color.FromArgb(16, Color.DarkGoldenrod))
+        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkGreen))
 
             Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 4), Brush, TitleLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(16, Color.DarkGoldenrod))
+        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
 
             Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 3), Brush, TitleLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGoldenrod))
+        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
 
             Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 2), Brush, TitleLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(75, Color.DarkGoldenrod))
+        Using Brush As New SolidBrush(Color.FromArgb(64, Color.DarkGreen))
 
             Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 1), Brush, TitleLocation, AlineCenterMiddle)
 
         End Using
 
 
-        Buffer.Graphics.DrawString(TitleText, TitleFont, Brushes.LightGoldenrodYellow, TitleLocation, AlineCenterMiddle)
+        Buffer.Graphics.DrawString(TitleText, TitleFont, Brushes.LightGreen, TitleLocation, AlineCenterMiddle)
 
 
     End Sub
