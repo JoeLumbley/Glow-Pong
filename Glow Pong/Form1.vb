@@ -120,7 +120,7 @@ Public Class Form1
     Private ReadOnly AlineCenter As New StringFormat
 
     'Title Data *******************************************
-    Private Const TitleText As String = "GLOW" & vbCrLf & "PONG"
+    Private Const TitleText As String = "GLOW PONG"
     Private TitleLocation As New Point(ClientSize.Width \ 2, ClientSize.Height \ 2 - 125)
     Private ReadOnly TitleFont As New Font(FontFamily.GenericSansSerif, 48)
     '******************************************************
@@ -1870,31 +1870,35 @@ Public Class Form1
 
     Private Sub DrawRightPaddleScore()
 
-        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkGreen))
+        'Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkGreen))
 
-            Buffer.Graphics.DrawString(RightPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 20), Brush, RPadScoreLocation, AlineCenterMiddle)
+        '    Buffer.Graphics.DrawString(RightPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 20), Brush, RPadScoreLocation, AlineCenterMiddle)
 
-        End Using
+        'End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
+        'Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
 
-            Buffer.Graphics.DrawString(RightPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 15), Brush, RPadScoreLocation, AlineCenterMiddle)
+        '    Buffer.Graphics.DrawString(RightPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 15), Brush, RPadScoreLocation, AlineCenterMiddle)
 
-        End Using
+        'End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
+        'Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
 
-            Buffer.Graphics.DrawString(RightPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 10), Brush, RPadScoreLocation, AlineCenterMiddle)
+        '    Buffer.Graphics.DrawString(RightPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 10), Brush, RPadScoreLocation, AlineCenterMiddle)
 
-        End Using
+        'End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(64, Color.DarkGreen))
+        'Using Brush As New SolidBrush(Color.FromArgb(64, Color.DarkGreen))
 
-            Buffer.Graphics.DrawString(RightPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 5), Brush, RPadScoreLocation, AlineCenterMiddle)
+        '    Buffer.Graphics.DrawString(RightPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 5), Brush, RPadScoreLocation, AlineCenterMiddle)
 
-        End Using
+        'End Using
 
-        Buffer.Graphics.DrawString(RightPaddleScore, ScoreFont, Brushes.LightGreen, RPadScoreLocation, AlineCenterMiddle)
+        'Buffer.Graphics.DrawString(RightPaddleScore, ScoreFont, Brushes.LightGreen, RPadScoreLocation, AlineCenterMiddle)
+
+
+
+        GreenTextGlow(RightPaddleScore, ScoreFont, RPadScoreLocation)
 
     End Sub
 
@@ -2063,7 +2067,7 @@ Public Class Form1
 
         BottomWall = ClientSize.Height
 
-        TitleLocation = New Point(ClientSize.Width \ 2, ClientSize.Height \ 2 - 125)
+        TitleLocation = New Point(ClientSize.Width \ 2, ClientSize.Height \ 2 - 50)
 
         LPadScoreLocation = New Point(ClientSize.Width \ 2 \ 2, 100)
 
@@ -2150,32 +2154,102 @@ Public Class Form1
     Private Sub DrawTitle()
 
 
+        Dim Loc As Point
+
+
+
+
+        Loc = TitleLocation
+
+        Loc.Offset(-272, 0)
+
+        GreenTextGlow("G", TitleFont, Loc)
+
+        Loc = TitleLocation
+
+        Loc.Offset(-205, 0)
+
+        GreenTextGlow("L", TitleFont, Loc)
+
+        Loc = TitleLocation
+
+        Loc.Offset(-140, 0)
+
+        GreenTextGlow("O", TitleFont, Loc)
+
+        Loc = TitleLocation
+
+        Loc.Offset(-54, 0)
+
+        GreenTextGlow("W", TitleFont, Loc)
+
+
+
+
+        Loc = TitleLocation
+
+        Loc.Offset(52, 0)
+
+        GreenTextGlow("P", TitleFont, Loc)
+
+        Loc = TitleLocation
+
+        Loc.Offset(124, 0)
+
+        GreenTextGlow("O", TitleFont, Loc)
+
+        Loc = TitleLocation
+
+        Loc.Offset(198, 0)
+
+        GreenTextGlow("N", TitleFont, Loc)
+
+        Loc = TitleLocation
+
+        Loc.Offset(272, 0)
+
+        GreenTextGlow("G", TitleFont, Loc)
+
+
+
+        'GreenTextGlow(text,Location)
+
+        'Buffer.Graphics.DrawString(TitleText, TitleFont, Brushes.Orange, TitleLocation, AlineCenterMiddle)
+
+
+
+
+
+    End Sub
+
+    Private Sub GreenTextGlow(Text As String, Font As Font, Location As Point)
+
         Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkGreen))
 
-            Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 4), Brush, TitleLocation, AlineCenterMiddle)
+            Buffer.Graphics.DrawString(Text, New Font(Font, Font.Size + 20), Brush, Location, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(40, Color.DarkGreen))
+        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
 
-            Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 3), Brush, TitleLocation, AlineCenterMiddle)
+            Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 15), Brush, Location, AlineCenterMiddle)
+
+        End Using
+
+        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
+
+            Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 10), Brush, Location, AlineCenterMiddle)
 
         End Using
 
         Using Brush As New SolidBrush(Color.FromArgb(64, Color.DarkGreen))
 
-            Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 2), Brush, TitleLocation, AlineCenterMiddle)
-
-        End Using
-
-        Using Brush As New SolidBrush(Color.FromArgb(100, Color.DarkGreen))
-
-            Buffer.Graphics.DrawString(TitleText, New Font(TitleFont.FontFamily, TitleFont.Size + 1), Brush, TitleLocation, AlineCenterMiddle)
+            Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 5), Brush, Location, AlineCenterMiddle)
 
         End Using
 
 
-        Buffer.Graphics.DrawString(TitleText, TitleFont, Brushes.LightGreen, TitleLocation, AlineCenterMiddle)
+        Buffer.Graphics.DrawString(Text, Font, Brushes.LightGreen, Location, AlineCenterMiddle)
 
 
     End Sub
