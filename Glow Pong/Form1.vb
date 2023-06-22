@@ -282,6 +282,8 @@ Public Class Form1
         InitializeBall()
 
         InitializeGraphicsBuffer()
+
+
         Timer1.Interval = 15 '16ms = 1000 milliseconds \ 60 frames per second
         Timer1.Start()
 
@@ -429,15 +431,17 @@ Public Class Form1
 
         DrawBall()
 
+
+
+        DrawLeftPaddleScore()
+
+        DrawRightPaddleScore()
+
         If NumberOfPlayers = 1 Then
 
             DrawComputerPlayerIdentifier()
 
         End If
-
-        DrawLeftPaddleScore()
-
-        DrawRightPaddleScore()
 
     End Sub
 
@@ -1471,17 +1475,22 @@ Public Class Form1
 
         DrawBall()
 
+
+
+        DrawLeftPaddleScore()
+
+        DrawRightPaddleScore()
+
+
         If NumberOfPlayers = 1 Then
 
             DrawComputerPlayerIdentifier()
 
         End If
 
-        DrawLeftPaddleScore()
-
-        DrawRightPaddleScore()
-
         DrawPausedText()
+
+
 
     End Sub
 
@@ -1515,15 +1524,17 @@ Public Class Form1
 
         DrawBall()
 
+
+
+        DrawLeftPaddleScore()
+
+        DrawRightPaddleScore()
+
         If NumberOfPlayers = 1 Then
 
             DrawComputerPlayerIdentifier()
 
         End If
-
-        DrawLeftPaddleScore()
-
-        DrawRightPaddleScore()
 
     End Sub
 
@@ -1543,7 +1554,7 @@ Public Class Form1
 
             'Draw one player instructions.
             Buffer.Graphics.DrawString(InstructOneText,
-            InstructionsFont, Brushes.White, InstructOneLocation, AlineCenter)
+            InstructionsFont, Brushes.Orchid, InstructOneLocation, AlineCenter)
 
         Else
 
@@ -1551,7 +1562,7 @@ Public Class Form1
 
             'Draw two player instructions.
             Buffer.Graphics.DrawString(InstructTwoText,
-            InstructionsFont, Brushes.White, InstructTwoLocation, AlineCenter)
+            InstructionsFont, Brushes.Orchid, InstructTwoLocation, AlineCenter)
 
         End If
 
@@ -2226,7 +2237,7 @@ Public Class Form1
 
         Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkGreen))
 
-            Buffer.Graphics.DrawString(Text, New Font(Font, Font.Size + 20), Brush, Location, AlineCenterMiddle)
+            Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 20), Brush, Location, AlineCenterMiddle)
 
         End Using
 
