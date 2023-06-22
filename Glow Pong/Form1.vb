@@ -256,10 +256,11 @@ Public Class Form1
     Dim lastFrame As DateTime = Now ' initialize last frame time to 0
 
 
+    Dim RightPaddleHit As Boolean = False
+    Dim RightPaddleHitTimer As Integer = 0
 
-
-
-
+    Dim LeftPaddleHit As Boolean = False
+    Dim LeftPaddleHitTimer As Integer = 0
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -1020,6 +1021,8 @@ Public Class Form1
         If LeftPaddle.IntersectsWith(Ball) Then
             'Yes, the ball hit the left paddle.
 
+            LeftPaddleHit = True
+
             If NumberOfPlayers = 2 Then
 
                 VibrateRight(AControllerID, 30000)
@@ -1033,6 +1036,10 @@ Public Class Form1
 
             PlayBounceSound()
 
+        Else
+
+            LeftPaddleHit = False
+
         End If
 
     End Sub
@@ -1040,6 +1047,8 @@ Public Class Form1
     Private Sub CheckRightPaddleHit()
 
         If RightPaddle.IntersectsWith(Ball) Then
+
+            RightPaddleHit = True
 
             If NumberOfPlayers = 1 Then
 
@@ -1058,6 +1067,8 @@ Public Class Form1
             PlayBounceSound()
 
         Else
+
+            RightPaddleHit = False
 
             MouseWheelUp = False
 
@@ -1915,31 +1926,31 @@ Public Class Form1
 
     Private Sub DrawLeftPaddleScore()
 
-        Using Brush As New SolidBrush(Color.FromArgb(20, Color.DarkRed))
+        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkRed))
 
             Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 20), Brush, LPadScoreLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(30, Color.DarkRed))
+        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkRed))
 
             Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 15), Brush, LPadScoreLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(40, Color.DarkRed))
+        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkRed))
 
             Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 10), Brush, LPadScoreLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkRed))
+        Using Brush As New SolidBrush(Color.FromArgb(64, Color.DarkRed))
 
             Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 5), Brush, LPadScoreLocation, AlineCenterMiddle)
 
         End Using
 
-        Buffer.Graphics.DrawString(LeftPaddleScore, ScoreFont, Brushes.LightPink, LPadScoreLocation, AlineCenterMiddle)
+        Buffer.Graphics.DrawString(LeftPaddleScore, ScoreFont, Brushes.HotPink, LPadScoreLocation, AlineCenterMiddle)
 
     End Sub
 
@@ -2143,8 +2154,23 @@ Public Class Form1
 
         'Buffer.Graphics.FillRectangle(Brushes.White, RightPaddle)
 
+        If RightPaddleHit = False Then
 
-        DrawGlowingSkyBlue(RightPaddle)
+            DrawGlowingSkyBlue(RightPaddle)
+
+        Else
+
+            RightPaddleHitTimer = 10
+
+        End If
+
+        If RightPaddleHitTimer > 0 Then
+
+            DrawGlowingOrchid(RightPaddle)
+
+            RightPaddleHitTimer -= 1
+
+        End If
 
     End Sub
 
@@ -2152,7 +2178,23 @@ Public Class Form1
 
         'Buffer.Graphics.FillRectangle(Brushes.White, LeftPaddle)
 
-        DrawGlowingSkyBlue(LeftPaddle)
+        If LeftPaddleHit = False Then
+
+            DrawGlowingSkyBlue(LeftPaddle)
+
+        Else
+
+            LeftPaddleHitTimer = 10
+
+        End If
+
+        If LeftPaddleHitTimer > 0 Then
+
+            DrawGlowingOrchid(LeftPaddle)
+
+            LeftPaddleHitTimer -= 1
+
+        End If
 
     End Sub
 
