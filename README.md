@@ -4,7 +4,14 @@ In this app we remake the classic ping pong game with a glow effect.
 
 
 
-![001](https://github.com/JoeLumbley/Glow-Pong/assets/77564255/18cd4ea2-ff2d-4dca-a543-cc0319421ae1)
+
+![002](https://github.com/JoeLumbley/Glow-Pong/assets/77564255/b692ad93-1169-49cd-9c94-680bc3edc585)
+
+
+
+![003](https://github.com/JoeLumbley/Glow-Pong/assets/77564255/4f4de3b0-b77a-4c72-88e0-b3f68a93dd95)
+
+
 
 
 
