@@ -285,7 +285,7 @@ Public Class Form1
         InitializeGraphicsBuffer()
 
 
-        Timer1.Interval = 15 '16ms = 1000 milliseconds \ 60 frames per second
+        Timer1.Interval = 1 '16ms = 1000 milliseconds \ 60 frames per second
         Timer1.Start()
 
     End Sub
@@ -1926,25 +1926,25 @@ Public Class Form1
 
     Private Sub DrawLeftPaddleScore()
 
-        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkRed))
+        Using Brush As New SolidBrush(Color.FromArgb(16, Color.DeepPink))
 
             Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 20), Brush, LPadScoreLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkRed))
+        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DeepPink))
 
             Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 15), Brush, LPadScoreLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkRed))
+        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DeepPink))
 
             Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 10), Brush, LPadScoreLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(64, Color.DarkRed))
+        Using Brush As New SolidBrush(Color.FromArgb(64, Color.DeepPink))
 
             Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 5), Brush, LPadScoreLocation, AlineCenterMiddle)
 
@@ -2277,25 +2277,25 @@ Public Class Form1
 
     Private Sub GreenTextGlow(Text As String, Font As Font, Location As Point)
 
-        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkGreen))
+        Using Brush As New SolidBrush(Color.FromArgb(40, Color.Green))
 
             Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 20), Brush, Location, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
+        Using Brush As New SolidBrush(Color.FromArgb(40, Color.Green))
 
             Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 15), Brush, Location, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
+        Using Brush As New SolidBrush(Color.FromArgb(50, Color.Green))
 
             Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 10), Brush, Location, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(64, Color.DarkGreen))
+        Using Brush As New SolidBrush(Color.FromArgb(128, Color.Green))
 
             Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 5), Brush, Location, AlineCenterMiddle)
 
