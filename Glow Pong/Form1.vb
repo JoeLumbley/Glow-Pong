@@ -285,7 +285,7 @@ Public Class Form1
         InitializeGraphicsBuffer()
 
 
-        Timer1.Interval = 1 '16ms = 1000 milliseconds \ 60 frames per second
+        Timer1.Interval = 15 '16ms = 1000 milliseconds \ 60 frames per second
         Timer1.Start()
 
     End Sub
