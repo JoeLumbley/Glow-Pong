@@ -93,7 +93,7 @@ Public Class Form1
 
     Private InstructStartLocation As Point
     Private ReadOnly InstructStartText As String = vbCrLf &
-        "One player:  A   Two players:  B"
+        "One player:  A      Two players:  B"
 
     'One Player Instructions Data *************************
     Private InstructOneLocation As Point
@@ -1926,13 +1926,13 @@ Public Class Form1
 
     Private Sub DrawLeftPaddleScore()
 
-        Using Brush As New SolidBrush(Color.FromArgb(16, Color.DeepPink))
+        Using Brush As New SolidBrush(Color.FromArgb(25, Color.DeepPink))
 
             Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 20), Brush, LPadScoreLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DeepPink))
+        Using Brush As New SolidBrush(Color.FromArgb(25, Color.DeepPink))
 
             Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 15), Brush, LPadScoreLocation, AlineCenterMiddle)
 
@@ -1944,13 +1944,13 @@ Public Class Form1
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(64, Color.DeepPink))
+        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DeepPink))
 
             Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 5), Brush, LPadScoreLocation, AlineCenterMiddle)
 
         End Using
 
-        Buffer.Graphics.DrawString(LeftPaddleScore, ScoreFont, Brushes.HotPink, LPadScoreLocation, AlineCenterMiddle)
+        Buffer.Graphics.DrawString(LeftPaddleScore, ScoreFont, Brushes.Pink, LPadScoreLocation, AlineCenterMiddle)
 
     End Sub
 
@@ -2641,19 +2641,13 @@ Public Class Form1
 
     Private Sub DrawGlowingOrchid(Rect As Rectangle)
 
-        Using Pen As New Pen(Color.FromArgb(32, Color.DarkOrchid), 25)
+        Using Pen As New Pen(Color.FromArgb(40, Color.DarkOrchid), 20)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(20, Color.DarkOrchid), 20)
-
-            Buffer.Graphics.DrawRectangle(Pen, Rect)
-
-        End Using
-
-        Using Pen As New Pen(Color.FromArgb(30, Color.DarkOrchid), 15)
+        Using Pen As New Pen(Color.FromArgb(40, Color.DarkOrchid), 15)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
@@ -2665,7 +2659,13 @@ Public Class Form1
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(255, Color.Orchid), 6)
+        Using Pen As New Pen(Color.FromArgb(128, Color.DarkOrchid), 5)
+
+            Buffer.Graphics.DrawRectangle(Pen, Rect)
+
+        End Using
+
+        Using Pen As New Pen(Color.FromArgb(255, Color.Orchid), 3)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
@@ -2675,31 +2675,31 @@ Public Class Form1
 
     Private Sub DrawGlowingSkyBlue(Rect As Rectangle)
 
-        Using Pen As New Pen(Color.FromArgb(32, Color.DarkBlue), 25)
+        Using Pen As New Pen(Color.FromArgb(40, Color.Blue), 20)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(35, Color.DarkBlue), 20)
+        Using Pen As New Pen(Color.FromArgb(40, Color.Blue), 15)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(40, Color.DarkBlue), 15)
+        Using Pen As New Pen(Color.FromArgb(50, Color.Blue), 10)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(64, Color.DarkBlue), 10)
+        Using Pen As New Pen(Color.FromArgb(128, Color.Blue), 5)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(255, Color.LightBlue), 6)
+        Using Pen As New Pen(Color.FromArgb(255, Color.LightBlue), 3)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
