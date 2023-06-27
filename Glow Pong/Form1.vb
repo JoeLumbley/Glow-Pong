@@ -2152,19 +2152,17 @@ Public Class Form1
 
     Private Sub DrawRightPaddle()
 
-        'Buffer.Graphics.FillRectangle(Brushes.White, RightPaddle)
-
-        If RightPaddleHit = False Then
-
-            DrawGlowingSkyBlue(RightPaddle)
-
-        Else
+        If RightPaddleHit = True Then
 
             RightPaddleHitTimer = 10
 
         End If
 
-        If RightPaddleHitTimer > 0 Then
+        If RightPaddleHitTimer = 0 Then
+
+            DrawGlowingSkyBlue(RightPaddle)
+
+        Else
 
             DrawGlowingOrchid(RightPaddle)
 
@@ -2176,19 +2174,17 @@ Public Class Form1
 
     Private Sub DrawLeftPaddle()
 
-        'Buffer.Graphics.FillRectangle(Brushes.White, LeftPaddle)
-
-        If LeftPaddleHit = False Then
-
-            DrawGlowingSkyBlue(LeftPaddle)
-
-        Else
+        If LeftPaddleHit = True Then
 
             LeftPaddleHitTimer = 10
 
         End If
 
-        If LeftPaddleHitTimer > 0 Then
+        If LeftPaddleHitTimer = 0 Then
+
+            DrawGlowingSkyBlue(LeftPaddle)
+
+        Else
 
             DrawGlowingOrchid(LeftPaddle)
 
