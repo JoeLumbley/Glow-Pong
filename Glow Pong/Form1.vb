@@ -164,7 +164,7 @@ Public Class Form1
     'Centerline Data *******************
     Private CenterlineTop As Point
     Private CenterlineBottom As Point
-    Private ReadOnly CenterlinePen As New Pen(Color.White, 7)
+    Private ReadOnly CenterlinePen As New Pen(Color.LightYellow, 7)
     '***********************************
 
     'Wall Data ***************************************
@@ -248,19 +248,14 @@ Public Class Form1
     '***************************************************************************************************
     Private ClientCenter As New Point(ClientSize.Width \ 2, ClientSize.Height \ 2)
 
+    Private deltaTime As TimeSpan 'initialize delta time To 0
+    Private lastFrame As DateTime = Now ' initialize last frame time to 0
 
+    Private RightPaddleHit As Boolean = False
+    Private RightPaddleHitTimer As Integer = 0
 
-
-
-    Dim deltaTime As TimeSpan 'initialize delta time To 0
-    Dim lastFrame As DateTime = Now ' initialize last frame time to 0
-
-
-    Dim RightPaddleHit As Boolean = False
-    Dim RightPaddleHitTimer As Integer = 0
-
-    Dim LeftPaddleHit As Boolean = False
-    Dim LeftPaddleHitTimer As Integer = 0
+    Private LeftPaddleHit As Boolean = False
+    Private LeftPaddleHitTimer As Integer = 0
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -284,8 +279,8 @@ Public Class Form1
 
         InitializeGraphicsBuffer()
 
-
         Timer1.Interval = 15 '16ms = 1000 milliseconds \ 60 frames per second
+
         Timer1.Start()
 
     End Sub
@@ -431,8 +426,6 @@ Public Class Form1
         DrawRightPaddle()
 
         DrawBall()
-
-
 
         DrawLeftPaddleScore()
 
@@ -1486,12 +1479,9 @@ Public Class Form1
 
         DrawBall()
 
-
-
         DrawLeftPaddleScore()
 
         DrawRightPaddleScore()
-
 
         If NumberOfPlayers = 1 Then
 
@@ -1500,8 +1490,6 @@ Public Class Form1
         End If
 
         DrawPausedText()
-
-
 
     End Sub
 
@@ -1565,7 +1553,7 @@ Public Class Form1
 
             'Draw one player instructions.
             Buffer.Graphics.DrawString(InstructOneText,
-            InstructionsFont, Brushes.Orchid, InstructOneLocation, AlineCenter)
+            InstructionsFont, Brushes.LightPink, InstructOneLocation, AlineCenter)
 
         Else
 
@@ -1573,7 +1561,7 @@ Public Class Form1
 
             'Draw two player instructions.
             Buffer.Graphics.DrawString(InstructTwoText,
-            InstructionsFont, Brushes.Orchid, InstructTwoLocation, AlineCenter)
+            InstructionsFont, Brushes.LightPink, InstructTwoLocation, AlineCenter)
 
         End If
 
@@ -1892,61 +1880,33 @@ Public Class Form1
 
     Private Sub DrawRightPaddleScore()
 
-        'Using Brush As New SolidBrush(Color.FromArgb(32, Color.DarkGreen))
-
-        '    Buffer.Graphics.DrawString(RightPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 20), Brush, RPadScoreLocation, AlineCenterMiddle)
-
-        'End Using
-
-        'Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
-
-        '    Buffer.Graphics.DrawString(RightPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 15), Brush, RPadScoreLocation, AlineCenterMiddle)
-
-        'End Using
-
-        'Using Brush As New SolidBrush(Color.FromArgb(50, Color.DarkGreen))
-
-        '    Buffer.Graphics.DrawString(RightPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 10), Brush, RPadScoreLocation, AlineCenterMiddle)
-
-        'End Using
-
-        'Using Brush As New SolidBrush(Color.FromArgb(64, Color.DarkGreen))
-
-        '    Buffer.Graphics.DrawString(RightPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 5), Brush, RPadScoreLocation, AlineCenterMiddle)
-
-        'End Using
-
-        'Buffer.Graphics.DrawString(RightPaddleScore, ScoreFont, Brushes.LightGreen, RPadScoreLocation, AlineCenterMiddle)
-
-
-
         GreenTextGlow(RightPaddleScore, ScoreFont, RPadScoreLocation)
 
     End Sub
 
     Private Sub DrawLeftPaddleScore()
 
-        Using Brush As New SolidBrush(Color.FromArgb(25, Color.DeepPink))
+        Using Brush As New SolidBrush(Color.FromArgb(20, Color.DeepPink))
 
-            Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 20), Brush, LPadScoreLocation, AlineCenterMiddle)
-
-        End Using
-
-        Using Brush As New SolidBrush(Color.FromArgb(25, Color.DeepPink))
-
-            Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 15), Brush, LPadScoreLocation, AlineCenterMiddle)
+            Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 16), Brush, LPadScoreLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(32, Color.DeepPink))
+        Using Brush As New SolidBrush(Color.FromArgb(40, Color.DeepPink))
 
-            Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 10), Brush, LPadScoreLocation, AlineCenterMiddle)
+            Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 12), Brush, LPadScoreLocation, AlineCenterMiddle)
 
         End Using
 
-        Using Brush As New SolidBrush(Color.FromArgb(50, Color.DeepPink))
+        Using Brush As New SolidBrush(Color.FromArgb(40, Color.DeepPink))
 
-            Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 5), Brush, LPadScoreLocation, AlineCenterMiddle)
+            Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 8), Brush, LPadScoreLocation, AlineCenterMiddle)
+
+        End Using
+
+        Using Brush As New SolidBrush(Color.FromArgb(100, Color.DeepPink))
+
+            Buffer.Graphics.DrawString(LeftPaddleScore, New Font(ScoreFont.FontFamily, ScoreFont.Size + 4), Brush, LPadScoreLocation, AlineCenterMiddle)
 
         End Using
 
@@ -2130,7 +2090,7 @@ Public Class Form1
 
     Private Sub DrawStartScreenInstructions()
 
-        Buffer.Graphics.DrawString(InstructStartText, InstructionsFont, Brushes.Orchid, InstructStartLocation, AlineCenter)
+        Buffer.Graphics.DrawString(InstructStartText, InstructionsFont, Brushes.LightPink, InstructStartLocation, AlineCenter)
 
     End Sub
 
@@ -2202,11 +2162,7 @@ Public Class Form1
 
     Private Sub DrawTitle()
 
-
         Dim Loc As Point
-
-
-
 
         Loc = TitleLocation
 
@@ -2232,9 +2188,6 @@ Public Class Form1
 
         GreenTextGlow("W", TitleFont, Loc)
 
-
-
-
         Loc = TitleLocation
 
         Loc.Offset(52, 0)
@@ -2259,15 +2212,9 @@ Public Class Form1
 
         GreenTextGlow("G", TitleFont, Loc)
 
-
-
         'GreenTextGlow(text,Location)
 
         'Buffer.Graphics.DrawString(TitleText, TitleFont, Brushes.Orange, TitleLocation, AlineCenterMiddle)
-
-
-
-
 
     End Sub
 
@@ -2275,25 +2222,25 @@ Public Class Form1
 
         Using Brush As New SolidBrush(Color.FromArgb(40, Color.Green))
 
-            Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 20), Brush, Location, AlineCenterMiddle)
+            Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 16), Brush, Location, AlineCenterMiddle)
 
         End Using
 
         Using Brush As New SolidBrush(Color.FromArgb(40, Color.Green))
 
-            Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 15), Brush, Location, AlineCenterMiddle)
+            Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 12), Brush, Location, AlineCenterMiddle)
 
         End Using
 
         Using Brush As New SolidBrush(Color.FromArgb(50, Color.Green))
 
-            Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 10), Brush, Location, AlineCenterMiddle)
+            Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 8), Brush, Location, AlineCenterMiddle)
 
         End Using
 
         Using Brush As New SolidBrush(Color.FromArgb(128, Color.Green))
 
-            Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 5), Brush, Location, AlineCenterMiddle)
+            Buffer.Graphics.DrawString(Text, New Font(Font.FontFamily, Font.Size + 4), Brush, Location, AlineCenterMiddle)
 
         End Using
 
@@ -2637,31 +2584,31 @@ Public Class Form1
 
     Private Sub DrawGlowingOrchid(Rect As Rectangle)
 
-        Using Pen As New Pen(Color.FromArgb(40, Color.DarkOrchid), 20)
+        Using Pen As New Pen(Color.FromArgb(32, Color.Purple), 45)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(40, Color.DarkOrchid), 15)
+        Using Pen As New Pen(Color.FromArgb(32, Color.Purple), 30)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(50, Color.DarkOrchid), 10)
+        Using Pen As New Pen(Color.FromArgb(32, Color.Purple), 20)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(128, Color.DarkOrchid), 5)
+        Using Pen As New Pen(Color.FromArgb(64, Color.Purple), 8)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(255, Color.Orchid), 3)
+        Using Pen As New Pen(Color.FromArgb(255, Color.LightPink), 5)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
