@@ -2618,31 +2618,31 @@ Public Class Form1
 
     Private Sub DrawGlowingSkyBlue(Rect As Rectangle)
 
-        Using Pen As New Pen(Color.FromArgb(40, Color.Blue), 20)
+        Using Pen As New Pen(Color.FromArgb(25, Color.Blue), 45)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(40, Color.Blue), 15)
+        Using Pen As New Pen(Color.FromArgb(25, Color.Blue), 30)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(50, Color.Blue), 10)
+        Using Pen As New Pen(Color.FromArgb(25, Color.Blue), 20)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(128, Color.Blue), 5)
+        Using Pen As New Pen(Color.FromArgb(25, Color.Blue), 8)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(255, Color.LightBlue), 3)
+        Using Pen As New Pen(Color.FromArgb(255, Color.LightBlue), 5)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
