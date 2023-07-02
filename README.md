@@ -24,11 +24,11 @@ Works on Windows 10 and 11.
 
 
 
-## Cloning and Running the Game
+## Playing the Game
 
-To clone the game click on the green "Code" button and select open with Visual Studio.
+To play the game click on the green "Code" button and select open with Visual Studio.
 
-To run the game click on the green "play" button or press F5.
+Then click on the green "play" button or press F5.
 
 The game will open in a new window, ready to play.
 
