@@ -38,10 +38,11 @@ If don't have Visual Studio you can download it at:
 https://visualstudio.microsoft.com/downloads/
 
 
+## Let me know what you think.
 
+Leave a comment on the glow pong video.
 
-I'm making a video to explain the code on my YouTube channel.
+https://youtube.com/shorts/QSt3HXyfUx0?feature=share
 
-https://www.youtube.com/@codewithjoe6074
 
 
