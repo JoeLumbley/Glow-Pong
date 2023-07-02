@@ -65,6 +65,9 @@ Public Class Form1
 
     'Ball Data *************************
     Private Ball As Rectangle
+    Private BallPosX As Double
+    Private BallPosY As Double
+
     Private Const BallVelocity As Double = 0.5
     Private BallDirection As DirectionEnum
     Private ReadOnly BallMidlineUpPen As New Pen(Color.Green, 7)
@@ -1023,7 +1026,9 @@ Public Class Form1
             End If
 
             'Push the ball to the paddles right edge.
-            Ball.X = LeftPaddle.X + LeftPaddle.Width + 1
+            'Ball.X = LeftPaddle.X + LeftPaddle.Width + 1
+
+            BallPosX = LeftPaddle.X + LeftPaddle.Width + 1
 
             ApplyLeftPaddleEnglishToBall()
 
@@ -1053,7 +1058,9 @@ Public Class Form1
 
             End If
 
-            Ball.X = RightPaddle.X - (Ball.Width + 5)
+            'Ball.X = RightPaddle.X - (Ball.Width + 5)
+
+            BallPosX = RightPaddle.X - (Ball.Width + 5)
 
             ApplyRightPaddleEnglishToBall()
 
@@ -1425,7 +1432,14 @@ Public Class Form1
 
     Private Sub PlaceBallCenterCourt()
 
-        Ball.Location = New Point((ClientSize.Width \ 2) - (Ball.Width \ 2), (ClientSize.Height \ 2) - (Ball.Height \ 2))
+        'Ball.Location = New Point((ClientSize.Width \ 2) - (Ball.Width \ 2), (ClientSize.Height \ 2) - (Ball.Height \ 2))
+
+        BallPosX = (ClientSize.Width \ 2) - (Ball.Width \ 2)
+        BallPosY = (ClientSize.Height \ 2) - (Ball.Height \ 2)
+
+        Ball.X = Math.Round(BallPosX)
+        Ball.Y = Math.Round(BallPosY)
+
 
     End Sub
 
@@ -1916,25 +1930,39 @@ Public Class Form1
 
     Private Sub MoveBallRight()
 
-        Ball.X += deltaTime.TotalMilliseconds * BallVelocity
+        BallPosX += deltaTime.TotalMilliseconds * BallVelocity
+
+        Ball.X = Math.Round(BallPosX)
 
     End Sub
 
     Private Sub MoveBallLeft()
 
-        Ball.X -= deltaTime.TotalMilliseconds * BallVelocity
+        'Ball.X -= deltaTime.TotalMilliseconds * BallVelocity
+
+        BallPosX -= deltaTime.TotalMilliseconds * BallVelocity
+
+        Ball.X = Math.Round(BallPosX)
 
     End Sub
 
     Private Sub MoveBallDown()
 
-        Ball.Y += deltaTime.TotalMilliseconds * BallVelocity
+        'Ball.Y += deltaTime.TotalMilliseconds * BallVelocity
+
+        BallPosY += deltaTime.TotalMilliseconds * BallVelocity
+
+        Ball.Y = Math.Round(BallPosY)
 
     End Sub
 
     Private Sub MoveBallUp()
 
-        Ball.Y -= deltaTime.TotalMilliseconds * BallVelocity
+        'Ball.Y -= deltaTime.TotalMilliseconds * BallVelocity
+
+        BallPosY -= deltaTime.TotalMilliseconds * BallVelocity
+
+        Ball.Y = Math.Round(BallPosY)
 
     End Sub
 
@@ -2026,8 +2054,8 @@ Public Class Form1
 
     Private Sub InitializeBall()
 
-        Ball.Width = 25
-        Ball.Height = 25
+        Ball.Width = 26
+        Ball.Height = 26
 
         PlaceBallCenterCourt()
 
@@ -2121,6 +2149,8 @@ Public Class Form1
         If RightPaddleHitTimer = 0 Then
 
             DrawGlowingSkyBlue(RightPaddle)
+            'DrawGlowingOrchid(RightPaddle)
+
 
         Else
 
@@ -2584,25 +2614,25 @@ Public Class Form1
 
     Private Sub DrawGlowingOrchid(Rect As Rectangle)
 
-        Using Pen As New Pen(Color.FromArgb(32, Color.Purple), 45)
+        Using Pen As New Pen(Color.FromArgb(40, Color.Purple), 31)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(32, Color.Purple), 30)
+        Using Pen As New Pen(Color.FromArgb(40, Color.Purple), 23)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(32, Color.Purple), 20)
+        Using Pen As New Pen(Color.FromArgb(35, Color.Purple), 20)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(64, Color.Purple), 8)
+        Using Pen As New Pen(Color.FromArgb(150, Color.Purple), 10)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
@@ -2618,25 +2648,25 @@ Public Class Form1
 
     Private Sub DrawGlowingSkyBlue(Rect As Rectangle)
 
-        Using Pen As New Pen(Color.FromArgb(25, Color.Blue), 45)
+        Using Pen As New Pen(Color.FromArgb(35, Color.Blue), 31)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(25, Color.Blue), 30)
+        Using Pen As New Pen(Color.FromArgb(35, Color.Blue), 23)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(25, Color.Blue), 20)
+        Using Pen As New Pen(Color.FromArgb(40, Color.Blue), 20)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
         End Using
 
-        Using Pen As New Pen(Color.FromArgb(25, Color.Blue), 8)
+        Using Pen As New Pen(Color.FromArgb(150, Color.Blue), 9)
 
             Buffer.Graphics.DrawRectangle(Pen, Rect)
 
