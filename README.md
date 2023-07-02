@@ -24,7 +24,7 @@ Works on Windows 10 and 11.
 
 
 
-## Cloning and Running the Game with Visual Studio
+## Cloning and Running the Game
 
 To clone the game click on the green "Code" button and select open with Visual Studio.
 
