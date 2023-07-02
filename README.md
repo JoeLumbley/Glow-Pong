@@ -28,7 +28,7 @@ To clone the game click on the green "Code" button and select open with Visual S
 
 To run the game click on the green "play" button or press F5.
 
-The game will open in a new window, ready for you to play!
+The game will open in a new window, ready to play.
 
 
 ## Downloading Visual Studio
