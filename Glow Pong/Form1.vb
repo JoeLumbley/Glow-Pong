@@ -64,11 +64,11 @@ Public Class Form1
     End Enum
 
     'Ball Data *************************
-    Private Ball As Rectangle
-    Private BallPosX As Double
-    Private BallPosY As Double
+    Private Ball As RectangleF
+    'Private BallPosX As Double
+    'Private BallPosY As Double
 
-    Private Const BallVelocity As Double = 0.5
+    Private Const BallVelocity As Double = 500
     Private BallDirection As DirectionEnum
     Private ReadOnly BallMidlineUpPen As New Pen(Color.Green, 7)
     Private ReadOnly BallMidlineDownPen As New Pen(Color.Red, 7)
@@ -76,8 +76,8 @@ Public Class Form1
     '***********************************
 
     'Left Paddle Data *****************
-    Private LeftPaddle As Rectangle
-    Private Const LeftPaddleVelocity As Double = 0.5
+    Private LeftPaddle As RectangleF
+    Private Const LeftPaddleVelocity As Double = 500
     Private LeftPaddleScore As Integer
     Private LPadScoreLocation As Point
     Private ReadOnly LeftPaddleMidlinePen As New Pen(Color.Goldenrod, 7)
@@ -85,8 +85,8 @@ Public Class Form1
     '***********************************
 
     'Right Paddle Data *****************
-    Private RightPaddle As Rectangle
-    Private Const RightPaddleVelocity As Double = 0.5
+    Private RightPaddle As RectangleF
+    Private Const RightPaddleVelocity As Double = 500
     Private RightPaddleScore As Integer
     Private RPadScoreLocation As Point
     '***********************************
@@ -636,7 +636,7 @@ Public Class Form1
             'Yes, the ball is above the paddle.
 
             'Move the paddle up.
-            LeftPaddle.Y -= deltaTime.TotalMilliseconds * LeftPaddleVelocity - 1
+            LeftPaddle.Y -= LeftPaddleVelocity * deltaTime.TotalSeconds - 1
 
             'Is the paddle above the playing field? 
             If LeftPaddle.Y < TopWall Then
@@ -656,7 +656,7 @@ Public Class Form1
             'Yes, the ball is below the paddle.
 
             'Move the paddle down.
-            LeftPaddle.Y += deltaTime.TotalMilliseconds * LeftPaddleVelocity - 1
+            LeftPaddle.Y += LeftPaddleVelocity * deltaTime.TotalSeconds - 1
 
             'Is the paddle below the playing field?
             If LeftPaddle.Y + LeftPaddle.Height > BottomWall Then
@@ -680,7 +680,7 @@ Public Class Form1
             'Yes, the left player is pressing the W key down.
 
             'Move left paddle up.
-            LeftPaddle.Y -= deltaTime.TotalMilliseconds * LeftPaddleVelocity
+            LeftPaddle.Y -= LeftPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the left paddle above the playing field? 
             If LeftPaddle.Y < TopWall Then
@@ -698,7 +698,7 @@ Public Class Form1
             'Yes, the left player is pressing the S key down.
 
             'Move left paddle down.
-            LeftPaddle.Y += deltaTime.TotalMilliseconds * LeftPaddleVelocity
+            LeftPaddle.Y += LeftPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the left paddle below the playing field?
             If LeftPaddle.Y + LeftPaddle.Height > BottomWall Then
@@ -720,7 +720,7 @@ Public Class Form1
             'Yes, the right player is pressing the up arrow key down.
 
             'Move right paddle up.
-            RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity
+            RightPaddle.Y -= RightPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the right paddle above the playing field?
             If RightPaddle.Y < TopWall Then
@@ -738,7 +738,7 @@ Public Class Form1
             'Yes, the right paddle player is pressing the down arrow key down.
 
             'Move right paddle down.
-            RightPaddle.Y += deltaTime.TotalMilliseconds * RightPaddleVelocity
+            RightPaddle.Y += RightPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the right paddle below the playing field?
             If RightPaddle.Y + RightPaddle.Height > BottomWall Then
@@ -760,7 +760,7 @@ Public Class Form1
             'Yes, the right paddle player is rolling the mouse wheel up.
 
             'Move right paddle up.
-            RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity * 4
+            RightPaddle.Y -= RightPaddleVelocity * deltaTime.TotalSeconds * 4
 
             'Is the right paddle above the playing field?
             If RightPaddle.Y < TopWall Then
@@ -778,7 +778,7 @@ Public Class Form1
             'Yes, the right paddle player is rolling the mouse wheel down.
 
             'Move right paddle down.
-            RightPaddle.Y += deltaTime.TotalMilliseconds * RightPaddleVelocity * 4
+            RightPaddle.Y += RightPaddleVelocity * deltaTime.TotalSeconds * 4
 
             'Is the right paddle below the playing field?
             If RightPaddle.Y + RightPaddle.Height > BottomWall Then
@@ -812,7 +812,7 @@ Public Class Form1
         If AControllerDown = True Then
 
             'Move right paddle down.
-            RightPaddle.Y += deltaTime.TotalMilliseconds * RightPaddleVelocity
+            RightPaddle.Y += RightPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the right paddle below the playing field?
             If RightPaddle.Y + RightPaddle.Height > BottomWall Then
@@ -828,7 +828,7 @@ Public Class Form1
         If AControllerUp = True Then
 
             'Move right paddle up.
-            RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity
+            RightPaddle.Y -= RightPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the right paddle above the playing field?
             If RightPaddle.Y < TopWall Then
@@ -844,7 +844,7 @@ Public Class Form1
         If AControllerTsDown = True Then
 
             'Move right paddle down.
-            RightPaddle.Y += deltaTime.TotalMilliseconds * RightPaddleVelocity
+            RightPaddle.Y += RightPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the right paddle below the playing field?
             If RightPaddle.Y + RightPaddle.Height > BottomWall Then
@@ -860,7 +860,7 @@ Public Class Form1
         If AControllerTsUp = True Then
 
             'Move right paddle up.
-            RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity
+            RightPaddle.Y -= RightPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the right paddle above the playing field?
             If RightPaddle.Y < TopWall Then
@@ -880,7 +880,7 @@ Public Class Form1
         If BControllerDown = True Then
 
             'Move right paddle down.
-            RightPaddle.Y += deltaTime.TotalMilliseconds * RightPaddleVelocity
+            RightPaddle.Y += RightPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the right paddle below the playing field?
             If RightPaddle.Y + RightPaddle.Height > BottomWall Then
@@ -896,7 +896,7 @@ Public Class Form1
         If BControllerUp = True Then
 
             'Move right paddle up.
-            RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity
+            RightPaddle.Y -= RightPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the right paddle above the playing field?
             If RightPaddle.Y < TopWall Then
@@ -912,7 +912,7 @@ Public Class Form1
         If BControllerTsDown = True Then
 
             'Move right paddle down.
-            RightPaddle.Y += deltaTime.TotalMilliseconds * RightPaddleVelocity
+            RightPaddle.Y += RightPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the right paddle below the playing field?
             If RightPaddle.Y + RightPaddle.Height > BottomWall Then
@@ -928,7 +928,10 @@ Public Class Form1
         If BControllerTsUp = True Then
 
             'Move right paddle up.
-            RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity
+            'RightPaddle.Y -= deltaTime.TotalMilliseconds * RightPaddleVelocity
+
+            RightPaddle.Y -= RightPaddleVelocity * deltaTime.TotalSeconds
+
 
             'Is the right paddle above the playing field?
             If RightPaddle.Y < TopWall Then
@@ -948,7 +951,7 @@ Public Class Form1
         If AControllerDown = True Then
 
             'Move left paddle down.
-            LeftPaddle.Y += deltaTime.TotalMilliseconds * LeftPaddleVelocity
+            LeftPaddle.Y += LeftPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the left paddle below the playing field?
             If LeftPaddle.Y + LeftPaddle.Height > BottomWall Then
@@ -964,7 +967,7 @@ Public Class Form1
         If AControllerUp = True Then
 
             'Move left paddle up.
-            LeftPaddle.Y -= deltaTime.TotalMilliseconds * LeftPaddleVelocity
+            LeftPaddle.Y -= LeftPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the left paddle above the playing field? 
             If LeftPaddle.Y < TopWall Then
@@ -980,7 +983,7 @@ Public Class Form1
         If AControllerTsDown = True Then
 
             'Move left paddle down.
-            LeftPaddle.Y += deltaTime.TotalMilliseconds * LeftPaddleVelocity
+            LeftPaddle.Y += LeftPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the left paddle below the playing field?
             If LeftPaddle.Y + LeftPaddle.Height > BottomWall Then
@@ -996,7 +999,7 @@ Public Class Form1
         If AControllerTsUp = True Then
 
             'Move left paddle up.
-            LeftPaddle.Y -= deltaTime.TotalMilliseconds * LeftPaddleVelocity
+            LeftPaddle.Y -= LeftPaddleVelocity * deltaTime.TotalSeconds
 
             'Is the left paddle above the playing field? 
             If LeftPaddle.Y < TopWall Then
@@ -1026,9 +1029,9 @@ Public Class Form1
             End If
 
             'Push the ball to the paddles right edge.
-            'Ball.X = LeftPaddle.X + LeftPaddle.Width + 1
+            Ball.X = LeftPaddle.X + LeftPaddle.Width + 1
 
-            BallPosX = LeftPaddle.X + LeftPaddle.Width + 1
+            'BallPosX = LeftPaddle.X + LeftPaddle.Width + 1
 
             ApplyLeftPaddleEnglishToBall()
 
@@ -1058,9 +1061,9 @@ Public Class Form1
 
             End If
 
-            'Ball.X = RightPaddle.X - (Ball.Width + 5)
+            Ball.X = RightPaddle.X - (Ball.Width + 5)
 
-            BallPosX = RightPaddle.X - (Ball.Width + 5)
+            'BallPosX = RightPaddle.X - (Ball.Width + 5)
 
             ApplyRightPaddleEnglishToBall()
 
@@ -1432,13 +1435,13 @@ Public Class Form1
 
     Private Sub PlaceBallCenterCourt()
 
-        'Ball.Location = New Point((ClientSize.Width \ 2) - (Ball.Width \ 2), (ClientSize.Height \ 2) - (Ball.Height \ 2))
+        Ball.Location = New Point((ClientSize.Width \ 2) - (Ball.Width \ 2), (ClientSize.Height \ 2) - (Ball.Height \ 2))
 
-        BallPosX = (ClientSize.Width \ 2) - (Ball.Width \ 2)
-        BallPosY = (ClientSize.Height \ 2) - (Ball.Height \ 2)
+        'BallPosX = (ClientSize.Width \ 2) - (Ball.Width \ 2)
+        'BallPosY = (ClientSize.Height \ 2) - (Ball.Height \ 2)
 
-        Ball.X = Math.Round(BallPosX)
-        Ball.Y = Math.Round(BallPosY)
+        'Ball.X = Math.Round(BallPosX)
+        'Ball.Y = Math.Round(BallPosY)
 
 
     End Sub
@@ -1930,39 +1933,42 @@ Public Class Form1
 
     Private Sub MoveBallRight()
 
-        BallPosX += deltaTime.TotalMilliseconds * BallVelocity
+        Ball.X += BallVelocity * deltaTime.TotalSeconds
 
-        Ball.X = Math.Round(BallPosX)
+
+        'BallPosX += deltaTime.TotalMilliseconds * BallVelocity
+
+        'Ball.X = Math.Round(BallPosX)
 
     End Sub
 
     Private Sub MoveBallLeft()
 
-        'Ball.X -= deltaTime.TotalMilliseconds * BallVelocity
+        Ball.X -= BallVelocity * deltaTime.TotalSeconds
 
-        BallPosX -= deltaTime.TotalMilliseconds * BallVelocity
+        'BallPosX -= deltaTime.TotalMilliseconds * BallVelocity
 
-        Ball.X = Math.Round(BallPosX)
+        'Ball.X = Math.Round(BallPosX)
 
     End Sub
 
     Private Sub MoveBallDown()
 
-        'Ball.Y += deltaTime.TotalMilliseconds * BallVelocity
+        Ball.Y += BallVelocity * deltaTime.TotalSeconds
 
-        BallPosY += deltaTime.TotalMilliseconds * BallVelocity
+        'BallPosY += deltaTime.TotalMilliseconds * BallVelocity
 
-        Ball.Y = Math.Round(BallPosY)
+        'Ball.Y = Math.Round(BallPosY)
 
     End Sub
 
     Private Sub MoveBallUp()
 
-        'Ball.Y -= deltaTime.TotalMilliseconds * BallVelocity
+        Ball.Y -= BallVelocity * deltaTime.TotalSeconds
 
-        BallPosY -= deltaTime.TotalMilliseconds * BallVelocity
+        'BallPosY -= deltaTime.TotalMilliseconds * BallVelocity
 
-        Ball.Y = Math.Round(BallPosY)
+        'Ball.Y = Math.Round(BallPosY)
 
     End Sub
 
@@ -2612,69 +2618,74 @@ Public Class Form1
 
     End Sub
 
-    Private Sub DrawGlowingOrchid(Rect As Rectangle)
+    Private Sub DrawGlowingOrchid(Rect As RectangleF)
+
+        Dim rec As New Rectangle(Math.Round(Rect.X), Math.Round(Rect.Y), Math.Round(Rect.Width), Math.Round(Rect.Height))
 
         Using Pen As New Pen(Color.FromArgb(40, Color.Purple), 31)
 
-            Buffer.Graphics.DrawRectangle(Pen, Rect)
+            Buffer.Graphics.DrawRectangle(Pen, rec)
 
         End Using
 
         Using Pen As New Pen(Color.FromArgb(40, Color.Purple), 23)
 
-            Buffer.Graphics.DrawRectangle(Pen, Rect)
+            Buffer.Graphics.DrawRectangle(Pen, rec)
 
         End Using
 
         Using Pen As New Pen(Color.FromArgb(35, Color.Purple), 20)
 
-            Buffer.Graphics.DrawRectangle(Pen, Rect)
+            Buffer.Graphics.DrawRectangle(Pen, rec)
 
         End Using
 
         Using Pen As New Pen(Color.FromArgb(150, Color.Purple), 10)
 
-            Buffer.Graphics.DrawRectangle(Pen, Rect)
+            Buffer.Graphics.DrawRectangle(Pen, rec)
 
         End Using
 
         Using Pen As New Pen(Color.FromArgb(255, Color.LightPink), 5)
 
-            Buffer.Graphics.DrawRectangle(Pen, Rect)
+            Buffer.Graphics.DrawRectangle(Pen, rec)
 
         End Using
 
     End Sub
 
-    Private Sub DrawGlowingSkyBlue(Rect As Rectangle)
+    Private Sub DrawGlowingSkyBlue(Rect As RectangleF)
+
+        Dim rec As New Rectangle(Math.Round(Rect.X), Math.Round(Rect.Y), Math.Round(Rect.Width), Math.Round(Rect.Height))
+
 
         Using Pen As New Pen(Color.FromArgb(35, Color.Blue), 31)
 
-            Buffer.Graphics.DrawRectangle(Pen, Rect)
+            Buffer.Graphics.DrawRectangle(Pen, rec)
 
         End Using
 
         Using Pen As New Pen(Color.FromArgb(35, Color.Blue), 23)
 
-            Buffer.Graphics.DrawRectangle(Pen, Rect)
+            Buffer.Graphics.DrawRectangle(Pen, rec)
 
         End Using
 
         Using Pen As New Pen(Color.FromArgb(40, Color.Blue), 20)
 
-            Buffer.Graphics.DrawRectangle(Pen, Rect)
+            Buffer.Graphics.DrawRectangle(Pen, rec)
 
         End Using
 
         Using Pen As New Pen(Color.FromArgb(150, Color.Blue), 9)
 
-            Buffer.Graphics.DrawRectangle(Pen, Rect)
+            Buffer.Graphics.DrawRectangle(Pen, rec)
 
         End Using
 
         Using Pen As New Pen(Color.FromArgb(255, Color.LightBlue), 5)
 
-            Buffer.Graphics.DrawRectangle(Pen, Rect)
+            Buffer.Graphics.DrawRectangle(Pen, rec)
 
         End Using
 
