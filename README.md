@@ -1,27 +1,48 @@
+
+
+![005](https://github.com/JoeLumbley/Glow-Pong/assets/77564255/6c493d6b-7a2b-48f8-9f47-e9a3f5c2e801)
+
+
+
+![004](https://github.com/JoeLumbley/Glow-Pong/assets/77564255/061a8c13-afc8-47d2-b881-a659734a14fc)
+
+
 # Glow Pong
 
-In this app we remake the classic ping pong game with a glow effect.
 
+Ping pong with a glow effect.
 
+This game is resizable, pausable and has a computer player.
 
-
-![002](https://github.com/JoeLumbley/Glow-Pong/assets/77564255/b692ad93-1169-49cd-9c94-680bc3edc585)
-
-
-
-![003](https://github.com/JoeLumbley/Glow-Pong/assets/77564255/4f4de3b0-b77a-4c72-88e0-b3f68a93dd95)
-
-
-
-
-
-This version is resizable, pausable and has a computer player.
 Supports keyboard, mouse and Xbox controllers including the vibration effect (rumble).
-It was written in VB.NET in 2023 and is compatible with Windows 10 and 11.
+
+Works on Windows 10 and 11.
 
 
 
-I'm making a video to explain the code on my YouTube channel.
-https://www.youtube.com/@codewithjoe6074
+## Playing the Game
+
+
+To play the game click on the green "Code" button and select open with Visual Studio.
+
+Then click on the green "play" button or press F5.
+
+The game will open in a new window, ready to play.
+
+
+## Downloading Visual Studio
+
+
+If don't have Visual Studio you can download it at:
+
+https://visualstudio.microsoft.com/downloads/
+
+
+## Let me know what you think.
+
+Leave a comment on the glow pong video.
+
+https://youtube.com/shorts/QSt3HXyfUx0?feature=share
+
 
 
