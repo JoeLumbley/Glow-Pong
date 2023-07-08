@@ -1,12 +1,10 @@
 ﻿'Glow Pong
-'
-'In this app we remake the classic ping pong game with a glow effect.
-'This version is resizable, pausable and has a computer player.
+
+'Ping pong game with a glow effect.
+'This app is resizable, pausable and has a computer player.
 'Supports keyboard, mouse and Xbox controllers including the vibration effect (rumble).
-'It was written in VB.NET in 2023 and is compatible with Windows 10 and 11.
-'I'm making a video to explain the code on my YouTube channel.
-'https://www.youtube.com/@codewithjoe6074
-'
+'It was written in 2023 and is compatible with Windows 10 and 11.
+
 'MIT License
 'Copyright(c) 2023 Joseph Lumbley
 
@@ -30,6 +28,9 @@
 
 'Monica is our an AI assistant.
 'https://monica.im/
+
+'I'm making a video to explain the code on my YouTube channel.
+'https://www.youtube.com/@codewithjoe6074
 
 Imports System.Runtime.InteropServices
 
@@ -1245,8 +1246,6 @@ Public Class Form1
 
             lastFrame = Now
 
-
-
             GameState = GameStateEnum.Playing
 
         End If
@@ -1254,7 +1253,6 @@ Public Class Form1
         If PKeyDown = True Or AKeyDown = True Then
 
             lastFrame = Now
-
 
             PKeyDown = False
 
@@ -1435,14 +1433,7 @@ Public Class Form1
 
     Private Sub PlaceBallCenterCourt()
 
-        Ball.Location = New Point((ClientSize.Width \ 2) - (Ball.Width \ 2), (ClientSize.Height \ 2) - (Ball.Height \ 2))
-
-        'BallPosX = (ClientSize.Width \ 2) - (Ball.Width \ 2)
-        'BallPosY = (ClientSize.Height \ 2) - (Ball.Height \ 2)
-
-        'Ball.X = Math.Round(BallPosX)
-        'Ball.Y = Math.Round(BallPosY)
-
+        Ball.Location = New PointF((ClientSize.Width \ 2) - (Ball.Width \ 2), (ClientSize.Height \ 2) - (Ball.Height \ 2))
 
     End Sub
 
@@ -1539,8 +1530,6 @@ Public Class Form1
         DrawRightPaddle()
 
         DrawBall()
-
-
 
         DrawLeftPaddleScore()
 
