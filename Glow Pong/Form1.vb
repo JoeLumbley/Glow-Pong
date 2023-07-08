@@ -1924,20 +1924,11 @@ Public Class Form1
 
         Ball.X += BallVelocity * deltaTime.TotalSeconds
 
-
-        'BallPosX += deltaTime.TotalMilliseconds * BallVelocity
-
-        'Ball.X = Math.Round(BallPosX)
-
     End Sub
 
     Private Sub MoveBallLeft()
 
         Ball.X -= BallVelocity * deltaTime.TotalSeconds
-
-        'BallPosX -= deltaTime.TotalMilliseconds * BallVelocity
-
-        'Ball.X = Math.Round(BallPosX)
 
     End Sub
 
@@ -1945,19 +1936,11 @@ Public Class Form1
 
         Ball.Y += BallVelocity * deltaTime.TotalSeconds
 
-        'BallPosY += deltaTime.TotalMilliseconds * BallVelocity
-
-        'Ball.Y = Math.Round(BallPosY)
-
     End Sub
 
     Private Sub MoveBallUp()
 
         Ball.Y -= BallVelocity * deltaTime.TotalSeconds
-
-        'BallPosY -= deltaTime.TotalMilliseconds * BallVelocity
-
-        'Ball.Y = Math.Round(BallPosY)
 
     End Sub
 
@@ -2126,9 +2109,6 @@ Public Class Form1
 
     Private Sub DrawBall()
 
-        'Buffer.Graphics.FillRectangle(Brushes.White, Ball)
-
-
         DrawGlowingOrchid(Ball)
 
     End Sub
@@ -2144,8 +2124,6 @@ Public Class Form1
         If RightPaddleHitTimer = 0 Then
 
             DrawGlowingSkyBlue(RightPaddle)
-            'DrawGlowingOrchid(RightPaddle)
-
 
         Else
 
@@ -2237,8 +2215,6 @@ Public Class Form1
 
         GreenTextGlow("G", TitleFont, Loc)
 
-        'GreenTextGlow(text,Location)
-
         'Buffer.Graphics.DrawString(TitleText, TitleFont, Brushes.Orange, TitleLocation, AlineCenterMiddle)
 
     End Sub
@@ -2269,9 +2245,7 @@ Public Class Form1
 
         End Using
 
-
         Buffer.Graphics.DrawString(Text, Font, Brushes.LightGreen, Location, AlineCenterMiddle)
-
 
     End Sub
 
