@@ -35,7 +35,6 @@
 Imports System.Runtime.InteropServices
 Imports System.Numerics
 
-
 Public Class Form1
 
     Private Enum GameStateEnum
@@ -69,9 +68,6 @@ Public Class Form1
     'Ball Data *************************
     Private Ball As Rectangle
     Private BallPos As New Vector2
-
-
-
     Private Const BallVelocity As Double = 500
     Private BallDirection As DirectionEnum
     Private ReadOnly BallMidlineUpPen As New Pen(Color.Green, 7)
@@ -82,8 +78,6 @@ Public Class Form1
     'Left Paddle Data *****************
     Private LeftPaddle As Rectangle
     Private LeftPaddlePos As New Vector2
-
-
     Private Const LeftPaddleVelocity As Double = 500
     Private LeftPaddleScore As Integer
     Private LPadScoreLocation As Point
@@ -94,12 +88,6 @@ Public Class Form1
     'Right Paddle Data *****************
     Private RightPaddle As Rectangle
     Private RightPaddlePos As New Vector2
-    'TODO: Move paddle position instend of the paddle.
-
-
-
-
-
     Private Const RightPaddleVelocity As Double = 500
     Private RightPaddleScore As Integer
     Private RPadScoreLocation As Point
@@ -265,13 +253,6 @@ Public Class Form1
     '***************************************************************************************************
     Private ClientCenter As New Point(ClientSize.Width \ 2, ClientSize.Height \ 2)
 
-
-    'Private DeltaTime As TimeSpan 'initialize delta time To 0
-
-    'Private LastFrame As DateTime = Now ' initialize last frame time to 0
-
-    'Private CurrentFrame As DateTime = Now ' get current time
-
     Private CurrentFrame As DateTime = Now 'Initialize current frame to current time.
 
     Private LastFrame As DateTime = CurrentFrame 'Initialize last frame time to current time.
@@ -291,20 +272,12 @@ Public Class Form1
     Private Orchid3Pen As New Pen(Color.FromArgb(150, Color.DeepPink), 8)
     Private Orchid4Pen As New Pen(Color.FromArgb(255, Color.Pink), 5) 'Top
 
-
-    'Private SkyBlue0Pen As New Pen(Color.FromArgb(35, Color.Blue), 31)
-    'Private SkyBlue1Pen As New Pen(Color.FromArgb(35, Color.Blue), 23)
-    'Private SkyBlue2Pen As New Pen(Color.FromArgb(40, Color.Blue), 20)
-    'Private SkyBlue3Pen As New Pen(Color.FromArgb(150, Color.Blue), 9)
-    'Private SkyBlue4Pen As New Pen(Color.FromArgb(255, Color.LightBlue), 5)
-
     Private SkyBlue0Pen As New Pen(Color.FromArgb(40, Color.Blue), 20) 'Bottom
     Private SkyBlue1Pen As New Pen(Color.FromArgb(50, Color.Blue), 17)
     Private SkyBlue2Pen As New Pen(Color.FromArgb(64, Color.Blue), 13)
     Private SkyBlue3Pen As New Pen(Color.FromArgb(128, Color.Blue), 8)
     Private SkyBlue4Pen As New Pen(Color.FromArgb(255, Color.LightBlue), 5) 'Top
 
-    'Private DimBrush As Brush()
     Dim DimmerBrush As New SolidBrush(Color.FromArgb(200, Color.Black))
 
     Private InstructPauseLocation As Point
@@ -321,13 +294,11 @@ Public Class Form1
     Private LeftScore3Font As New Font(FontFamily.GenericSansSerif, 75 + 4)
     Private LeftScore4Font As New Font(FontFamily.GenericSansSerif, 75)
 
-
     Private GreenGlow0Brush As New SolidBrush(Color.FromArgb(40, Color.Green))
     Private GreenGlow1Brush As New SolidBrush(Color.FromArgb(40, Color.Green))
     Private GreenGlow2Brush As New SolidBrush(Color.FromArgb(50, Color.Green))
     Private GreenGlow3Brush As New SolidBrush(Color.FromArgb(128, Color.Green))
     Private GreenGlow4Brush As New SolidBrush(Color.FromArgb(255, Color.LightGreen))
-    'FontFamily.GenericSansSerif, 48
 
     Private TitleGlow0Font As New Font(FontFamily.GenericSansSerif, 48 + 16)
     Private TitleGlow1Font As New Font(FontFamily.GenericSansSerif, 48 + 12)
@@ -335,14 +306,11 @@ Public Class Form1
     Private TitleGlow3Font As New Font(FontFamily.GenericSansSerif, 48 + 4)
     Private TitleGlow4Font As New Font(FontFamily.GenericSansSerif, 48)
 
-
-    'FontFamily.GenericSansSerif, 75
     Private RightScore0Font As New Font(FontFamily.GenericSansSerif, 75 + 16)
     Private RightScore1Font As New Font(FontFamily.GenericSansSerif, 75 + 12)
     Private RightScore2Font As New Font(FontFamily.GenericSansSerif, 75 + 8)
     Private RightScore3Font As New Font(FontFamily.GenericSansSerif, 75 + 4)
     Private RightScore4Font As New Font(FontFamily.GenericSansSerif, 75)
-
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -453,15 +421,11 @@ Public Class Form1
 
     Private Sub UpdatePlaying()
 
-        'Dim currentFrame As DateTime = Now ' get current time
-
-
         CurrentFrame = Now ' get current time
 
         DeltaTime = CurrentFrame - LastFrame ' calculate delta time
 
         LastFrame = Now ' update last frame time
-
 
         UpdateControllerPosition()
 
@@ -470,11 +434,6 @@ Public Class Form1
         UpdateBall()
 
         UpdateScore()
-
-
-
-
-
 
         CheckforEndGame()
 
@@ -656,7 +615,6 @@ Public Class Form1
 
     Private Sub UpdateLeftPaddle()
 
-
         If NumberOfPlayers = 1 Then
 
             UpdateLeftPaddleOnePlayer()
@@ -797,7 +755,6 @@ Public Class Form1
             'Update paddle position.
             LeftPaddle.Y = Math.Round(LeftPaddlePos.Y)
 
-
         End If
 
         'Is the left player pressing the S key down?
@@ -819,7 +776,6 @@ Public Class Form1
 
             'Update paddle position.
             LeftPaddle.Y = Math.Round(LeftPaddlePos.Y)
-
 
         End If
 
@@ -881,8 +837,6 @@ Public Class Form1
 
             'Move right paddle up.
             RightPaddlePos.Y -= RightPaddleVelocity * 4 * DeltaTime.TotalSeconds
-
-
 
             'Is the right paddle above the playing field?
             If RightPaddlePos.Y < TopWall Then
@@ -1026,7 +980,6 @@ Public Class Form1
             'Move right paddle down.
             RightPaddlePos.Y += RightPaddleVelocity * DeltaTime.TotalSeconds
 
-
             'Is the right paddle below the playing field?
             If RightPaddlePos.Y + RightPaddle.Height > BottomWall Then
                 'Yes, the right paddle is below playing field.
@@ -1126,7 +1079,6 @@ Public Class Form1
             'Update paddle position.
             LeftPaddle.Y = Math.Round(LeftPaddlePos.Y)
 
-
         End If
 
         If AControllerUp = True Then
@@ -1146,7 +1098,6 @@ Public Class Form1
 
             'Update paddle position.
             LeftPaddle.Y = Math.Round(LeftPaddlePos.Y)
-
 
         End If
 
@@ -1168,7 +1119,6 @@ Public Class Form1
             'Update paddle position.
             LeftPaddle.Y = Math.Round(LeftPaddlePos.Y)
 
-
         End If
 
         If AControllerTsUp = True Then
@@ -1188,7 +1138,6 @@ Public Class Form1
 
             'Update paddle position.
             LeftPaddle.Y = Math.Round(LeftPaddlePos.Y)
-
 
         End If
 
@@ -1592,7 +1541,6 @@ Public Class Form1
         'Update paddle position.
         LeftPaddle.Y = Math.Round(LeftPaddlePos.Y)
 
-
         RightPaddlePos.X = ClientSize.Width - RightPaddle.Width - 20.0F 'Aline right 20 pix padding
         RightPaddlePos.Y = ClientSize.Height / 2.0F - RightPaddle.Height / 2.0F 'Center verticaly
 
@@ -1696,13 +1644,10 @@ Public Class Form1
 
         End If
 
-        'Using New Brush
-
         'Dim the frame.
         Buffer.Graphics.FillRectangle(DimmerBrush, ClientRectangle)
 
         DrawPausedText()
-
 
     End Sub
 
@@ -2091,104 +2036,20 @@ Public Class Form1
 
     Private Sub DrawRightPaddleScore()
 
-
-        'TODO: Declare sub draw right score
-        'GreenTextGlow(RightPaddleScore, ScoreFont, RPadScoreLocation)
-
-
-        'TODO: Declare brushes at program start.
-
-        'TODO: Declare fonts at program start.
-
-        'GreenGlow0Brush
-        'Using Brush As New SolidBrush(Color.FromArgb(40, Color.Green))
-
-
-        'GreenGlow0Font
         Buffer.Graphics.DrawString(RightPaddleScore, RightScore0Font, GreenGlow0Brush, RPadScoreLocation, AlineCenterMiddle)
-
-        'End Using
-
-        'GreenGlow1Brush
-        'Using Brush As New SolidBrush(Color.FromArgb(40, Color.Green))
-
-        'GreenGlow1Font
         Buffer.Graphics.DrawString(RightPaddleScore, RightScore1Font, GreenGlow1Brush, RPadScoreLocation, AlineCenterMiddle)
-
-        'End Using
-
-
-        'GreenGlow2Brush
-        'Using Brush As New SolidBrush(Color.FromArgb(50, Color.Green))
-
-
-        'GreenGlow2Font
         Buffer.Graphics.DrawString(RightPaddleScore, RightScore2Font, GreenGlow2Brush, RPadScoreLocation, AlineCenterMiddle)
-
-        'End Using
-
-
-        'GreenGlow3Brush
-        'Using Brush As New SolidBrush(Color.FromArgb(128, Color.Green))
-
-
-
-        'GreenGlow3Font
         Buffer.Graphics.DrawString(RightPaddleScore, RightScore3Font, GreenGlow3Brush, RPadScoreLocation, AlineCenterMiddle)
-
-        'End Using
-
-
-
-
-        'GreenGlow4Brush
-
-        'GreenGlow4Font
         Buffer.Graphics.DrawString(RightPaddleScore, RightScore4Font, GreenGlow4Brush, RPadScoreLocation, AlineCenterMiddle)
+
     End Sub
 
     Private Sub DrawLeftPaddleScore()
 
-        'TODO:Declare brushes at program start.
-        'LeftScore0Brush
-        'Using Brush As New SolidBrush(Color.FromArgb(20, Color.DeepPink))
-
-        'TODO:Declare fonts at program start.
-        '
-        'LeftScore0Font
         Buffer.Graphics.DrawString(LeftPaddleScore, LeftScore0Font, LeftScore0Brush, LPadScoreLocation, AlineCenterMiddle)
-
-        'End Using
-
-        'LeftScore1Brush
-        'Using Brush As New SolidBrush(Color.FromArgb(40, Color.DeepPink))
-
-        'LeftScore1Font
         Buffer.Graphics.DrawString(LeftPaddleScore, LeftScore1Font, LeftScore1Brush, LPadScoreLocation, AlineCenterMiddle)
-
-        'End Using
-
-        ''LeftScore2Brush
-        'Using Brush As New SolidBrush(Color.FromArgb(40, Color.DeepPink))
-
-        'LeftScore2Font
         Buffer.Graphics.DrawString(LeftPaddleScore, LeftScore2Font, LeftScore2Brush, LPadScoreLocation, AlineCenterMiddle)
-
-        'End Using
-
-        'LeftScore3Brush
-        'Using Brush As New SolidBrush(Color.FromArgb(100, Color.DeepPink))
-
-
-        'LeftScore3Font
         Buffer.Graphics.DrawString(LeftPaddleScore, LeftScore3Font, LeftScore3Brush, LPadScoreLocation, AlineCenterMiddle)
-
-        'End Using
-
-        'LeftScore4Brush
-
-
-        ''LeftScore4Font
         Buffer.Graphics.DrawString(LeftPaddleScore, LeftScore4Font, LeftScore4Brush, LPadScoreLocation, AlineCenterMiddle)
 
     End Sub
@@ -2306,14 +2167,12 @@ Public Class Form1
         LeftPaddle.Width = 25
         LeftPaddle.Height = 100
 
-
         LeftPaddlePos.X = 20
         LeftPaddlePos.Y = ClientSize.Height \ 2 - LeftPaddle.Height \ 2 'Center vertically
 
         'Update paddle position.
         LeftPaddle.X = Math.Round(LeftPaddlePos.X)
         LeftPaddle.Y = Math.Round(LeftPaddlePos.Y)
-
 
         RightPaddle.Width = 25
         RightPaddle.Height = 100
@@ -2343,8 +2202,6 @@ Public Class Form1
         'Update paddle position.
         LeftPaddle.Y = Math.Round(LeftPaddlePos.Y)
 
-
-
         'Center the right paddle vertically in the forms client area.
         RightPaddlePos.Y = ClientSize.Height / 2.0F - RightPaddle.Height / 2.0F
 
@@ -2369,8 +2226,6 @@ Public Class Form1
         LayoutInstructions()
 
         ClientCenter = New Point(ClientSize.Width \ 2, ClientSize.Height \ 2)
-
-
 
     End Sub
 
@@ -2530,55 +2385,10 @@ Public Class Form1
 
     Private Sub TitleTextGlow(Text As String, Location As Point)
 
-
-        'TODO: Declare brushes at program start.
-
-        'TODO: Declare fonts at program start.
-
-        'GreenGlow0Brush
-        'Using Brush As New SolidBrush(Color.FromArgb(40, Color.Green))
-
-
-        'GreenGlow0Font
         Buffer.Graphics.DrawString(Text, TitleGlow0Font, GreenGlow0Brush, Location, AlineCenterMiddle)
-
-        'End Using
-
-        'GreenGlow1Brush
-        'Using Brush As New SolidBrush(Color.FromArgb(40, Color.Green))
-
-        'GreenGlow1Font
         Buffer.Graphics.DrawString(Text, TitleGlow1Font, GreenGlow1Brush, Location, AlineCenterMiddle)
-
-        'End Using
-
-
-        'GreenGlow2Brush
-        'Using Brush As New SolidBrush(Color.FromArgb(50, Color.Green))
-
-
-        'GreenGlow2Font
         Buffer.Graphics.DrawString(Text, TitleGlow2Font, GreenGlow2Brush, Location, AlineCenterMiddle)
-
-        'End Using
-
-
-        'GreenGlow3Brush
-        'Using Brush As New SolidBrush(Color.FromArgb(128, Color.Green))
-
-
-
-        'GreenGlow3Font
         Buffer.Graphics.DrawString(Text, TitleGlow3Font, GreenGlow3Brush, Location, AlineCenterMiddle)
-
-        'End Using
-
-
-
-
-        'GreenGlow4Brush
-
-        'GreenGlow4Font
         Buffer.Graphics.DrawString(Text, TitleGlow4Font, GreenGlow4Brush, Location, AlineCenterMiddle)
 
     End Sub
@@ -2919,90 +2729,21 @@ Public Class Form1
 
     Private Sub DrawGlowingOrchid(Rect As Rectangle)
 
-        'Dim rec As New Rectangle(Math.Round(Rect.X), Math.Round(Rect.Y), Math.Round(Rect.Width), Math.Round(Rect.Height))
-
-        'TODO: Make pens at the start of program.
-
-        'Orchid0Pen 'Bottom
-        'Using Pen As New Pen(Color.FromArgb(40, Color.Purple), 31)
-
         Buffer.Graphics.DrawRectangle(Orchid0Pen, Rect)
-
-        'End Using
-
-        'Orchid1Pen
-        'Using Pen As New Pen(Color.FromArgb(40, Color.Purple), 23)
-
         Buffer.Graphics.DrawRectangle(Orchid1Pen, Rect)
-
-        'End Using
-
-        'Orchid2Pen
-        'Using Pen As New Pen(Color.FromArgb(35, Color.Purple), 20)
-
         Buffer.Graphics.DrawRectangle(Orchid2Pen, Rect)
-
-        'End Using
-
-        ''Orchid3Pen
-        'Using Pen As New Pen(Color.FromArgb(150, Color.Purple), 10)
-
         Buffer.Graphics.DrawRectangle(Orchid3Pen, Rect)
-
-        'End Using
-
-
-
-
-        'Orchid4Pen 'Top
-        'Using Pen As New Pen(Color.FromArgb(255, Color.LightPink), 5)
-
         Buffer.Graphics.DrawRectangle(Orchid4Pen, Rect)
-
-        'End Using
 
     End Sub
 
     Private Sub DrawGlowingSkyBlue(Rect As Rectangle)
 
-        'Dim rec As New Rectangle(Math.Round(Rect.X), Math.Round(Rect.Y), Math.Round(Rect.Width), Math.Round(Rect.Height))
-
-        'TODO: Make pens at the start of program.
-
-        'SkyBlue0Pen
-        'Using Pen As New Pen(Color.FromArgb(35, Color.Blue), 31)
-
         Buffer.Graphics.DrawRectangle(SkyBlue0Pen, Rect)
-
-        'End Using
-
-        'SkyBlue1Pen
-        'Using Pen As New Pen(Color.FromArgb(35, Color.Blue), 23)
-
         Buffer.Graphics.DrawRectangle(SkyBlue1Pen, Rect)
-
-        'End Using
-
-        'SkyBlue2Pen
-        'Using Pen As New Pen(Color.FromArgb(40, Color.Blue), 20)
-
         Buffer.Graphics.DrawRectangle(SkyBlue2Pen, Rect)
-
-        'End Using
-
-        'SkyBlue3Pen
-        'Using Pen As New Pen(Color.FromArgb(150, Color.Blue), 9)
-
         Buffer.Graphics.DrawRectangle(SkyBlue3Pen, Rect)
-
-        'End Using
-
-        'SkyBlue4Pen
-        'Using Pen As New Pen(Color.FromArgb(255, Color.LightBlue), 5)
-
         Buffer.Graphics.DrawRectangle(SkyBlue4Pen, Rect)
-
-        'End Using
 
     End Sub
 
