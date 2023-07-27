@@ -2817,3 +2817,7 @@ End Class
 'Strings used in Structures
 'https://learn.microsoft.com/en-us/dotnet/framework/interop/default-marshalling-for-strings#strings-used-in-structures
 '
+'TextureBrush Class
+'https://learn.microsoft.com/en-us/dotnet/api/system.drawing.texturebrush?view=windowsdesktop-7.0&source=recommendations
+'
+'
