@@ -34,7 +34,6 @@
 
 Imports System.Runtime.InteropServices
 Imports System.Numerics
-Imports System.Net.Mime.MediaTypeNames
 
 Public Class Form1
 
@@ -260,7 +259,6 @@ Public Class Form1
 
     Private DeltaTime As TimeSpan = CurrentFrame - LastFrame 'Initialize delta time to zero.
 
-
     Private RightPaddleHit As Boolean = False
     Private RightPaddleHitTimer As Integer = 0
 
@@ -279,7 +277,7 @@ Public Class Form1
     Private SkyBlue3Pen As New Pen(Color.FromArgb(128, Color.Blue), 8)
     Private SkyBlue4Pen As New Pen(Color.FromArgb(255, Color.LightBlue), 5) 'Top
 
-    Dim DimmerBrush As New SolidBrush(Color.FromArgb(200, Color.Black))
+    Private DimmerBrush As New SolidBrush(Color.FromArgb(200, Color.Black))
 
     Private InstructPauseLocation As Point
 
@@ -313,7 +311,6 @@ Public Class Form1
     Private RightScore3Font As New Font(FontFamily.GenericSansSerif, 75 + 4)
     Private RightScore4Font As New Font(FontFamily.GenericSansSerif, 75)
 
-
     Private checkerboard As New TextureBrush(My.Resources.checkerboard)
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -325,7 +322,6 @@ Public Class Form1
     Private Sub InitializeGame()
 
         checkerboard.WrapMode = Drawing2D.WrapMode.Tile
-
 
         InitializeForm()
 
