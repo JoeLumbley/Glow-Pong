@@ -34,6 +34,7 @@
 
 Imports System.Runtime.InteropServices
 Imports System.Numerics
+Imports System.Net.Mime.MediaTypeNames
 
 Public Class Form1
 
@@ -312,6 +313,9 @@ Public Class Form1
     Private RightScore3Font As New Font(FontFamily.GenericSansSerif, 75 + 4)
     Private RightScore4Font As New Font(FontFamily.GenericSansSerif, 75)
 
+
+    Private checkerboard As New TextureBrush(My.Resources.checkerboard)
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         InitializeGame()
@@ -319,6 +323,9 @@ Public Class Form1
     End Sub
 
     Private Sub InitializeGame()
+
+        checkerboard.WrapMode = Drawing2D.WrapMode.Tile
+
 
         InitializeForm()
 
@@ -443,7 +450,12 @@ Public Class Form1
 
     Private Sub DrawGame()
 
-        Buffer.Graphics.Clear(Color.Black)
+        'Buffer.Graphics.Clear(Color.Black)
+
+        Buffer.Graphics.FillRectangle(checkerboard, ClientRectangle)
+
+
+
 
         Select Case GameState
             Case GameStateEnum.EndScreen
@@ -2335,55 +2347,55 @@ Public Class Form1
 
         Loc.Offset(-272, 0)
 
-        TitleTextGlow("G", Loc)
+        DrawTitleGlow("G", Loc)
 
         Loc = TitleLocation
 
         Loc.Offset(-205, 0)
 
-        TitleTextGlow("L", Loc)
+        DrawTitleGlow("L", Loc)
 
         Loc = TitleLocation
 
         Loc.Offset(-140, 0)
 
-        TitleTextGlow("O", Loc)
+        DrawTitleGlow("O", Loc)
 
         Loc = TitleLocation
 
         Loc.Offset(-54, 0)
 
-        TitleTextGlow("W", Loc)
+        DrawTitleGlow("W", Loc)
 
         Loc = TitleLocation
 
         Loc.Offset(52, 0)
 
-        TitleTextGlow("P", Loc)
+        DrawTitleGlow("P", Loc)
 
         Loc = TitleLocation
 
         Loc.Offset(124, 0)
 
-        TitleTextGlow("O", Loc)
+        DrawTitleGlow("O", Loc)
 
         Loc = TitleLocation
 
         Loc.Offset(198, 0)
 
-        TitleTextGlow("N", Loc)
+        DrawTitleGlow("N", Loc)
 
         Loc = TitleLocation
 
         Loc.Offset(272, 0)
 
-        TitleTextGlow("G", Loc)
+        DrawTitleGlow("G", Loc)
 
         'Buffer.Graphics.DrawString(TitleText, TitleFont, Brushes.Orange, TitleLocation, AlineCenterMiddle)
 
     End Sub
 
-    Private Sub TitleTextGlow(Text As String, Location As Point)
+    Private Sub DrawTitleGlow(Text As String, Location As Point)
 
         Buffer.Graphics.DrawString(Text, TitleGlow0Font, GreenGlow0Brush, Location, AlineCenterMiddle)
         Buffer.Graphics.DrawString(Text, TitleGlow1Font, GreenGlow1Brush, Location, AlineCenterMiddle)
