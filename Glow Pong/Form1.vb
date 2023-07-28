@@ -249,7 +249,7 @@ Public Class Form1
 
     Private ControllerNumber As Long = 0
 
-    Private vibration As XINPUT_VIBRATION
+    Private Vibration As XINPUT_VIBRATION
     '***************************************************************************************************
     Private ClientCenter As New Point(ClientSize.Width \ 2, ClientSize.Height \ 2)
 
@@ -287,31 +287,31 @@ Public Class Form1
     Private LeftScore3Brush As New SolidBrush(Color.FromArgb(100, Color.DeepPink))
     Private LeftScore4Brush As New SolidBrush(Color.FromArgb(255, Color.Pink)) 'Top
 
-    Private LeftScore0Font As New Font(FontFamily.GenericSansSerif, 75 + 16)
+    Private LeftScore0Font As New Font(FontFamily.GenericSansSerif, 75 + 16) 'Bottom
     Private LeftScore1Font As New Font(FontFamily.GenericSansSerif, 75 + 12)
     Private LeftScore2Font As New Font(FontFamily.GenericSansSerif, 75 + 8)
     Private LeftScore3Font As New Font(FontFamily.GenericSansSerif, 75 + 4)
-    Private LeftScore4Font As New Font(FontFamily.GenericSansSerif, 75)
+    Private LeftScore4Font As New Font(FontFamily.GenericSansSerif, 75) 'Top
 
-    Private GreenGlow0Brush As New SolidBrush(Color.FromArgb(40, Color.Green))
+    Private GreenGlow0Brush As New SolidBrush(Color.FromArgb(40, Color.Green)) 'Bottom
     Private GreenGlow1Brush As New SolidBrush(Color.FromArgb(40, Color.Green))
     Private GreenGlow2Brush As New SolidBrush(Color.FromArgb(50, Color.Green))
     Private GreenGlow3Brush As New SolidBrush(Color.FromArgb(128, Color.Green))
     Private GreenGlow4Brush As New SolidBrush(Color.FromArgb(255, Color.LightGreen))
 
-    Private TitleGlow0Font As New Font(FontFamily.GenericSansSerif, 48 + 16)
+    Private TitleGlow0Font As New Font(FontFamily.GenericSansSerif, 48 + 16) 'Bottom
     Private TitleGlow1Font As New Font(FontFamily.GenericSansSerif, 48 + 12)
     Private TitleGlow2Font As New Font(FontFamily.GenericSansSerif, 48 + 8)
     Private TitleGlow3Font As New Font(FontFamily.GenericSansSerif, 48 + 4)
-    Private TitleGlow4Font As New Font(FontFamily.GenericSansSerif, 48)
+    Private TitleGlow4Font As New Font(FontFamily.GenericSansSerif, 48) 'Top
 
-    Private RightScore0Font As New Font(FontFamily.GenericSansSerif, 75 + 16)
+    Private RightScore0Font As New Font(FontFamily.GenericSansSerif, 75 + 16) 'Bottom
     Private RightScore1Font As New Font(FontFamily.GenericSansSerif, 75 + 12)
     Private RightScore2Font As New Font(FontFamily.GenericSansSerif, 75 + 8)
     Private RightScore3Font As New Font(FontFamily.GenericSansSerif, 75 + 4)
-    Private RightScore4Font As New Font(FontFamily.GenericSansSerif, 75)
+    Private RightScore4Font As New Font(FontFamily.GenericSansSerif, 75) 'Top
 
-    Private checkerboard As New TextureBrush(My.Resources.checkerboard)
+    Private Checkerboard As New TextureBrush(My.Resources.checkerboard)
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -321,25 +321,37 @@ Public Class Form1
 
     Private Sub InitializeGame()
 
-        checkerboard.WrapMode = Drawing2D.WrapMode.Tile
-
         InitializeForm()
 
         LayoutInstructions()
-
-        InitializeStringAlinement()
-
-        CenterlinePen.DashStyle = Drawing2D.DashStyle.Dash
 
         InitializePaddles()
 
         InitializeBall()
 
-        InitializeGraphicsBuffer()
+        InitializeGraphics()
+
+        InitializeTimer()
+
+    End Sub
+
+    Private Sub InitializeTimer()
 
         Timer1.Interval = 15 '16ms = 1000 milliseconds \ 60 frames per second
 
         Timer1.Start()
+
+    End Sub
+
+    Private Sub InitializeGraphics()
+
+        CenterlinePen.DashStyle = Drawing2D.DashStyle.Dash
+
+        Checkerboard.WrapMode = Drawing2D.WrapMode.Tile
+
+        InitializeStringAlinement()
+
+        InitializeGraphicsBuffer()
 
     End Sub
 
@@ -448,7 +460,7 @@ Public Class Form1
 
         'Buffer.Graphics.Clear(Color.Black)
 
-        Buffer.Graphics.FillRectangle(checkerboard, ClientRectangle)
+        Buffer.Graphics.FillRectangle(Checkerboard, ClientRectangle)
 
 
 
@@ -2703,10 +2715,10 @@ Public Class Form1
         'The right motor is the high-frequency rumble motor.
 
         'Turn left motor off (set zero speed).
-        vibration.wLeftMotorSpeed = 0
+        Vibration.wLeftMotorSpeed = 0
 
         'Set right motor speed.
-        vibration.wRightMotorSpeed = Speed
+        Vibration.wRightMotorSpeed = Speed
 
         Vibrate(ControllerNumber)
 
@@ -2717,7 +2729,7 @@ Public Class Form1
         Try
 
             'Turn motor on.
-            If XInputSetState(ControllerNumber, vibration) = 0 Then
+            If XInputSetState(ControllerNumber, Vibration) = 0 Then
                 'Success
                 'Text = XInputSetState(ControllerNumber, vibration).ToString
             Else
