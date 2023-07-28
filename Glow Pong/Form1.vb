@@ -311,7 +311,7 @@ Public Class Form1
     Private RightScore3Font As New Font(FontFamily.GenericSansSerif, 75 + 4)
     Private RightScore4Font As New Font(FontFamily.GenericSansSerif, 75) 'Top
 
-    Private Checkerboard As New TextureBrush(My.Resources.checkerboard)
+    Private CheckerboardBrush As New TextureBrush(My.Resources.checkerboard)
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -347,7 +347,7 @@ Public Class Form1
 
         CenterlinePen.DashStyle = Drawing2D.DashStyle.Dash
 
-        Checkerboard.WrapMode = Drawing2D.WrapMode.Tile
+        CheckerboardBrush.WrapMode = Drawing2D.WrapMode.Tile
 
         InitializeStringAlinement()
 
@@ -421,26 +421,25 @@ Public Class Form1
 
         'Use these settings when drawing to the backbuffer.
         With Buffer.Graphics
+
             'Bug fix don't change.
             .CompositingMode = Drawing2D.CompositingMode.SourceOver
             'To fix draw string error: "Parameters not valid."
-            'I set the compositing mode to source over.
+            'Set the compositing mode to source over.
+
             .SmoothingMode = Drawing2D.SmoothingMode.HighSpeed
             .TextRenderingHint = Drawing.Text.TextRenderingHint.AntiAlias
             .CompositingQuality = Drawing2D.CompositingQuality.HighSpeed
             .InterpolationMode = Drawing2D.InterpolationMode.NearestNeighbor
             .PixelOffsetMode = Drawing2D.PixelOffsetMode.HighSpeed
+
         End With
 
     End Sub
 
     Private Sub UpdatePlaying()
 
-        CurrentFrame = Now ' get current time
-
-        DeltaTime = CurrentFrame - LastFrame ' calculate delta time
-
-        LastFrame = Now ' update last frame time
+        UpdateDeltaTime()
 
         UpdateControllerPosition()
 
@@ -456,11 +455,21 @@ Public Class Form1
 
     End Sub
 
+    Private Sub UpdateDeltaTime()
+
+        CurrentFrame = Now ' get current time
+
+        DeltaTime = CurrentFrame - LastFrame ' calculate delta time
+
+        LastFrame = Now ' update last frame time
+
+    End Sub
+
     Private Sub DrawGame()
 
         'Buffer.Graphics.Clear(Color.Black)
 
-        Buffer.Graphics.FillRectangle(Checkerboard, ClientRectangle)
+        Buffer.Graphics.FillRectangle(CheckerboardBrush, ClientRectangle)
 
 
 
