@@ -457,11 +457,11 @@ Public Class Form1
 
     Private Sub UpdateDeltaTime()
 
-        CurrentFrame = Now ' get current time
+        CurrentFrame = Now 'Get current time
 
-        DeltaTime = CurrentFrame - LastFrame ' calculate delta time
+        DeltaTime = CurrentFrame - LastFrame 'Calculate delta time
 
-        LastFrame = Now ' update last frame time
+        LastFrame = Now 'Update last frame time
 
     End Sub
 
@@ -1736,6 +1736,11 @@ Public Class Form1
 
             DrawTitle()
 
+
+
+
+
+
             'Draw one player instructions.
             Buffer.Graphics.DrawString(InstructOneText,
             InstructionsFont, Brushes.Orange, InstructOneLocation, AlineCenter)
@@ -2287,7 +2292,42 @@ Public Class Form1
 
     Private Sub DrawStartScreenInstructions()
 
-        Buffer.Graphics.DrawString(InstructStartText, InstructionsFont, Brushes.Orange, InstructStartLocation, AlineCenter)
+        'Buffer.Graphics.DrawString(InstructStartText, InstructionsFont, Brushes.White, InstructStartLocation, AlineCenter)
+
+        Dim Loc As Point
+
+        Loc = InstructStartLocation
+
+        Loc.Offset(-149, 52)
+
+        'Draw one player:
+        Buffer.Graphics.DrawString("One player:",
+            InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+        Loc = InstructStartLocation
+
+        Loc.Offset(-43, 52)
+
+        'Draw A
+        Buffer.Graphics.DrawString("A",
+            InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
+
+
+        Loc = InstructStartLocation
+
+        Loc.Offset(104, 52)
+
+        'Draw two player:
+        Buffer.Graphics.DrawString("Two players:",
+            InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+        Loc = InstructStartLocation
+
+        Loc.Offset(219, 52)
+
+        'Draw B
+        Buffer.Graphics.DrawString("B",
+            InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
 
     End Sub
 
