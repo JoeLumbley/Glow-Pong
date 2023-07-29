@@ -30,14 +30,14 @@ Works on Windows 10 and 11.
 To play the game click on the green "Code" button and select open with Visual Studio.
 
 
-![011](https://github.com/JoeLumbley/Glow-Pong/assets/77564255/d193ed87-9519-4681-8443-bab5d3c41955)
+![013](https://github.com/JoeLumbley/Glow-Pong/assets/77564255/d1c0ac0b-8ec3-4a47-9e09-61e79bb2755c)
 
 
 
 Then click on the green "play" button or press F5.
 
 
-![012](https://github.com/JoeLumbley/Glow-Pong/assets/77564255/567f1d4a-30ad-42c3-9f87-8c777ce671e4)
+![014](https://github.com/JoeLumbley/Glow-Pong/assets/77564255/bad55588-cce4-4f55-9072-109c48692a63)
 
 
 
