@@ -121,7 +121,7 @@ Public Class Form1
         "Pause:  Start  P" & vbCrLf &
         "Resume:  A  P"
     '******************************************************
-    Private ReadOnly InstructionsFont As New Font(FontFamily.GenericSansSerif, 15)
+    Private ReadOnly InstructionsFont As New Font(FontFamily.GenericSansSerif, 17, FontStyle.Bold)
     Private ReadOnly AlineCenter As New StringFormat
 
     'Title Data *******************************************
@@ -2292,13 +2292,13 @@ Public Class Form1
 
     Private Sub DrawStartScreenInstructions()
 
-        'Buffer.Graphics.DrawString(InstructStartText, InstructionsFont, Brushes.White, InstructStartLocation, AlineCenter)
+        'Buffer.Graphics.DrawString(InstructStartText, InstructionsFont, Brushes.Yellow, InstructStartLocation, AlineCenter)
 
         Dim Loc As Point
 
         Loc = InstructStartLocation
 
-        Loc.Offset(-149, 52)
+        Loc.Offset(-173, 60)
 
         'Draw one player:
         Buffer.Graphics.DrawString("One player:",
@@ -2306,7 +2306,7 @@ Public Class Form1
 
         Loc = InstructStartLocation
 
-        Loc.Offset(-43, 52)
+        Loc.Offset(-50, 60)
 
         'Draw A
         Buffer.Graphics.DrawString("A",
@@ -2315,7 +2315,7 @@ Public Class Form1
 
         Loc = InstructStartLocation
 
-        Loc.Offset(104, 52)
+        Loc.Offset(122, 60)
 
         'Draw two player:
         Buffer.Graphics.DrawString("Two players:",
@@ -2323,7 +2323,7 @@ Public Class Form1
 
         Loc = InstructStartLocation
 
-        Loc.Offset(219, 52)
+        Loc.Offset(255, 60)
 
         'Draw B
         Buffer.Graphics.DrawString("B",
