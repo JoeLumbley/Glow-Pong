@@ -1427,6 +1427,9 @@ Public Class Form1
 
     Private Sub UpdateInstructions()
 
+        InstructStartLocation = New Point(ClientSize.Width \ 2, (ClientSize.Height \ 2) - 15)
+
+
         UpdateControllerPosition()
 
         If NumberOfPlayers = 1 Then
@@ -1736,22 +1739,107 @@ Public Class Form1
 
             DrawTitle()
 
-
-
-
-
-
             'Draw one player instructions.
-            Buffer.Graphics.DrawString(InstructOneText,
-            InstructionsFont, Brushes.Orange, InstructOneLocation, AlineCenter)
+            'Buffer.Graphics.DrawString(InstructOneText,
+            'InstructionsFont, Brushes.Yellow, InstructOneLocation, AlineCenter)
+
+
+            Dim Loc As Point
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(-21, 60)
+
+            'Draw Start:
+            Buffer.Graphics.DrawString("Start:",
+                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(54, 60)
+
+            'Draw B
+            Buffer.Graphics.DrawString("B",
+                InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(0, 120)
+
+            'Computer plays left paddle.
+            Buffer.Graphics.DrawString("Computer plays left paddle.",
+                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(0, 160)
+
+            'Use ↑ ↓ to move right paddle.
+            Buffer.Graphics.DrawString("Use ↑ ↓ to move right paddle.",
+                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(0, 205)
+
+            'First player to 10 points wins.
+            Buffer.Graphics.DrawString("First player to 10 points wins.",
+                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+
 
         Else
 
             DrawTitle()
 
             'Draw two player instructions.
-            Buffer.Graphics.DrawString(InstructTwoText,
-            InstructionsFont, Brushes.Orange, InstructTwoLocation, AlineCenter)
+            'Buffer.Graphics.DrawString(InstructTwoText,
+            'InstructionsFont, Brushes.Yellow, InstructTwoLocation, AlineCenter)
+
+
+            Dim Loc As Point
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(-21, 60)
+
+            'Draw Start:
+            Buffer.Graphics.DrawString("Start:",
+                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(54, 60)
+
+            'Draw B
+            Buffer.Graphics.DrawString("A",
+                InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(0, 120)
+
+            'Computer plays left paddle.
+            Buffer.Graphics.DrawString("Use W S to move left paddle.",
+                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(0, 160)
+
+            'Use ↑ ↓ to move right paddle.
+            Buffer.Graphics.DrawString("Use ↑ ↓ to move right paddle.",
+                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(0, 205)
+
+            'First player to 10 points wins.
+            Buffer.Graphics.DrawString("First player to 10 points wins.",
+                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
         End If
 
@@ -2480,6 +2568,9 @@ Public Class Form1
         InstructTwoLocation = Location
 
         InstructPauseLocation = New Point(ClientSize.Width \ 2, (ClientSize.Height \ 2) + 75)
+
+        InstructStartLocation = New Point(ClientSize.Width \ 2, (ClientSize.Height \ 2) - 15)
+
 
     End Sub
 
