@@ -471,9 +471,6 @@ Public Class Form1
 
         Buffer.Graphics.FillRectangle(CheckerboardBrush, ClientRectangle)
 
-
-
-
         Select Case GameState
             Case GameStateEnum.EndScreen
 
@@ -1739,18 +1736,12 @@ Public Class Form1
 
             DrawTitle()
 
-            'Draw one player instructions.
-            'Buffer.Graphics.DrawString(InstructOneText,
-            'InstructionsFont, Brushes.Yellow, InstructOneLocation, AlineCenter)
-
-
             Dim Loc As Point
 
             Loc = InstructStartLocation
 
             Loc.Offset(-21, 60)
 
-            'Draw Start:
             Buffer.Graphics.DrawString("Start:",
                 InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
@@ -1758,7 +1749,6 @@ Public Class Form1
 
             Loc.Offset(54, 60)
 
-            'Draw B
             Buffer.Graphics.DrawString("B",
                 InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
 
@@ -1766,7 +1756,6 @@ Public Class Form1
 
             Loc.Offset(0, 120)
 
-            'Computer plays left paddle.
             Buffer.Graphics.DrawString("Computer plays left paddle.",
                 InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
@@ -1774,29 +1763,19 @@ Public Class Form1
 
             Loc.Offset(0, 160)
 
-            'Use ↑ ↓ to move right paddle.
             Buffer.Graphics.DrawString("Use ↑ ↓ to move right paddle.",
                 InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
-
 
             Loc = InstructStartLocation
 
             Loc.Offset(0, 205)
 
-            'First player to 10 points wins.
             Buffer.Graphics.DrawString("First player to 10 points wins.",
                 InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
-
-
 
         Else
 
             DrawTitle()
-
-            'Draw two player instructions.
-            'Buffer.Graphics.DrawString(InstructTwoText,
-            'InstructionsFont, Brushes.Yellow, InstructTwoLocation, AlineCenter)
-
 
             Dim Loc As Point
 
@@ -1804,7 +1783,6 @@ Public Class Form1
 
             Loc.Offset(-21, 60)
 
-            'Draw Start:
             Buffer.Graphics.DrawString("Start:",
                 InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
@@ -1812,7 +1790,6 @@ Public Class Form1
 
             Loc.Offset(54, 60)
 
-            'Draw B
             Buffer.Graphics.DrawString("A",
                 InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
 
@@ -1820,7 +1797,6 @@ Public Class Form1
 
             Loc.Offset(0, 120)
 
-            'Computer plays left paddle.
             Buffer.Graphics.DrawString("Use W S to move left paddle.",
                 InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
@@ -1828,16 +1804,13 @@ Public Class Form1
 
             Loc.Offset(0, 160)
 
-            'Use ↑ ↓ to move right paddle.
             Buffer.Graphics.DrawString("Use ↑ ↓ to move right paddle.",
                 InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
-
 
             Loc = InstructStartLocation
 
             Loc.Offset(0, 205)
 
-            'First player to 10 points wins.
             Buffer.Graphics.DrawString("First player to 10 points wins.",
                 InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
@@ -2380,15 +2353,12 @@ Public Class Form1
 
     Private Sub DrawStartScreenInstructions()
 
-        'Buffer.Graphics.DrawString(InstructStartText, InstructionsFont, Brushes.Yellow, InstructStartLocation, AlineCenter)
-
         Dim Loc As Point
 
         Loc = InstructStartLocation
 
         Loc.Offset(-173, 60)
 
-        'Draw one player:
         Buffer.Graphics.DrawString("One player:",
             InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
@@ -2396,16 +2366,13 @@ Public Class Form1
 
         Loc.Offset(-50, 60)
 
-        'Draw A
         Buffer.Graphics.DrawString("A",
             InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
-
 
         Loc = InstructStartLocation
 
         Loc.Offset(122, 60)
 
-        'Draw two player:
         Buffer.Graphics.DrawString("Two players:",
             InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
@@ -2413,17 +2380,12 @@ Public Class Form1
 
         Loc.Offset(255, 60)
 
-        'Draw B
         Buffer.Graphics.DrawString("B",
             InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
 
     End Sub
 
     Private Sub DrawPausedText()
-
-        'Draw paused text.
-        'Buffer.Graphics.DrawString("Paused", TitleFont, Brushes.White, ClientCenter, AlineCenterMiddle)
-
 
         Dim Loc As Point
 
@@ -2463,21 +2425,10 @@ Public Class Form1
 
         DrawTitleGlow("d", Loc)
 
-
-
-
-
-
-
-        'Buffer.Graphics.DrawString("Resume:  A", InstructionsFont, Brushes.Yellow, InstructPauseLocation, AlineCenterMiddle)
-
-
-
         Loc = InstructPauseLocation
 
         Loc.Offset(-21, 0)
 
-        'Draw Resume:
         Buffer.Graphics.DrawString("Resume:",
             InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
@@ -2485,13 +2436,8 @@ Public Class Form1
 
         Loc.Offset(82, 0)
 
-        'Draw B
         Buffer.Graphics.DrawString("A",
             InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
-
-
-
-
 
     End Sub
 
