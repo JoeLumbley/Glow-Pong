@@ -2422,9 +2422,76 @@ Public Class Form1
     Private Sub DrawPausedText()
 
         'Draw paused text.
-        Buffer.Graphics.DrawString("Paused", TitleFont, Brushes.White, ClientCenter, AlineCenterMiddle)
+        'Buffer.Graphics.DrawString("Paused", TitleFont, Brushes.White, ClientCenter, AlineCenterMiddle)
 
-        Buffer.Graphics.DrawString("Resume:  A", InstructionsFont, Brushes.Orange, InstructPauseLocation, AlineCenterMiddle)
+
+        Dim Loc As Point
+
+        Loc = ClientCenter
+
+        Loc.Offset(-135, 0)
+
+        DrawTitleGlow("P", Loc)
+
+        Loc = ClientCenter
+
+        Loc.Offset(-75, 0)
+
+        DrawTitleGlow("a", Loc)
+
+        Loc = ClientCenter
+
+        Loc.Offset(-19, 0)
+
+        DrawTitleGlow("u", Loc)
+
+        Loc = ClientCenter
+
+        Loc.Offset(32, 0)
+
+        DrawTitleGlow("s", Loc)
+
+        Loc = ClientCenter
+
+        Loc.Offset(85, 0)
+
+        DrawTitleGlow("e", Loc)
+
+        Loc = ClientCenter
+
+        Loc.Offset(140, 0)
+
+        DrawTitleGlow("d", Loc)
+
+
+
+
+
+
+
+        'Buffer.Graphics.DrawString("Resume:  A", InstructionsFont, Brushes.Yellow, InstructPauseLocation, AlineCenterMiddle)
+
+
+
+        Loc = InstructPauseLocation
+
+        Loc.Offset(-21, 0)
+
+        'Draw Resume:
+        Buffer.Graphics.DrawString("Resume:",
+            InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+        Loc = InstructPauseLocation
+
+        Loc.Offset(82, 0)
+
+        'Draw B
+        Buffer.Graphics.DrawString("A",
+            InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
+
+
+
+
 
     End Sub
 
