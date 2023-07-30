@@ -547,7 +547,7 @@ Public Class Form1
     Private Sub UpdateScore()
 
         'Did ball enter left goal zone?
-        If BallPos.X < 0 Then
+        If BallPos.X < ClientRectangle.Left Then
             'Yes, ball entered left goal zone.
 
             'Award point to right paddle.
