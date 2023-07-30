@@ -37,32 +37,41 @@ Imports System.Numerics
 
 Public Class Form1
 
+    'Private Enum GameStateEnum
+    '    StartScreen = 0
+    '    Instructions = 1
+    '    Serve = 2
+    '    Playing = 3
+    '    EndScreen = 4
+    '    Pause = 5
+    'End Enum
+
     Private Enum GameStateEnum
-        StartScreen = 0
-        Instructions = 1
-        Serve = 2
-        Playing = 3
-        EndScreen = 4
-        Pause = 5
+        StartScreen
+        Instructions
+        Serve
+        Playing
+        EndScreen
+        Pause
     End Enum
 
     Private Enum ServeStateEnum
-        LeftPaddle = 1
-        RightPaddle = 2
+        LeftPaddle
+        RightPaddle
     End Enum
 
     Private Enum WinStateEnum
-        LeftPaddle = 1
-        RightPaddle = 2
+        LeftPaddle
+        RightPaddle
     End Enum
 
     Private Enum DirectionEnum
-        UpLeft = 1
-        Left = 2
-        DownLeft = 3
-        UpRight = 4
-        Right = 5
-        DownRight = 6
+        UpLeft
+        Left
+        DownLeft
+        UpRight
+        Right
+        DownRight
     End Enum
 
     'Ball Data *************************
