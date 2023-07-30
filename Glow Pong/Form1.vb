@@ -2610,7 +2610,6 @@ Public Class Form1
 
         InstructStartLocation = New Point(ClientSize.Width \ 2, (ClientSize.Height \ 2) - 15)
 
-
     End Sub
 
     Private Sub InitializeForm()
