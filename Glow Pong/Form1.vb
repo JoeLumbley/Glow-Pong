@@ -1745,85 +1745,101 @@ Public Class Form1
 
             DrawTitle()
 
-            Dim Loc As Point
-
-            Loc = InstructStartLocation
-
-            Loc.Offset(-21, 60)
-
-            Buffer.Graphics.DrawString("Start:",
-                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
-
-            Loc = InstructStartLocation
-
-            Loc.Offset(54, 60)
-
-            Buffer.Graphics.DrawString("B",
-                InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
-
-            Loc = InstructStartLocation
-
-            Loc.Offset(0, 120)
-
-            Buffer.Graphics.DrawString("Computer plays left paddle.",
-                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
-
-            Loc = InstructStartLocation
-
-            Loc.Offset(0, 160)
-
-            Buffer.Graphics.DrawString("Use ↑ ↓ to move right paddle.",
-                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
-
-            Loc = InstructStartLocation
-
-            Loc.Offset(0, 205)
-
-            Buffer.Graphics.DrawString("First player to 10 points wins.",
-                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+            DrawOnePlayerInstructions()
 
         Else
 
             DrawTitle()
 
-            Dim Loc As Point
+            DrawTwoPlayerInstructions()
 
-            Loc = InstructStartLocation
+        End If
 
-            Loc.Offset(-21, 60)
+    End Sub
 
-            Buffer.Graphics.DrawString("Start:",
-                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+    Private Sub DrawTwoPlayerInstructions()
+
+        Dim Loc As Point = InstructStartLocation
+
+        Loc.Offset(-21, 60)
+
+        With Buffer.Graphics
+
+            .DrawString("Start:",
+            InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
             Loc = InstructStartLocation
 
             Loc.Offset(54, 60)
 
-            Buffer.Graphics.DrawString("A",
+            .DrawString("A",
                 InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
 
             Loc = InstructStartLocation
 
             Loc.Offset(0, 120)
 
-            Buffer.Graphics.DrawString("Use W S to move left paddle.",
+            .DrawString("Use W S to move left paddle.",
                 InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
             Loc = InstructStartLocation
 
             Loc.Offset(0, 160)
 
-            Buffer.Graphics.DrawString("Use ↑ ↓ to move right paddle.",
+            .DrawString("Use ↑ ↓ to move right paddle.",
                 InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
             Loc = InstructStartLocation
 
             Loc.Offset(0, 205)
 
-            Buffer.Graphics.DrawString("First player to 10 points wins.",
+            .DrawString("First player to 10 points wins.",
                 InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
 
-        End If
+        End With
+
+    End Sub
+
+    Private Sub DrawOnePlayerInstructions()
+
+        Dim Loc As Point = InstructStartLocation
+
+        Loc.Offset(-21, 60)
+
+        With Buffer.Graphics
+
+            .DrawString("Start:",
+            InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(54, 60)
+
+            .DrawString("B",
+                InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(0, 120)
+
+            .DrawString("Computer plays left paddle.",
+                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(0, 160)
+
+            .DrawString("Use ↑ ↓ to move right paddle.",
+                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+            Loc = InstructStartLocation
+
+            Loc.Offset(0, 205)
+
+            .DrawString("First player to 10 points wins.",
+                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+
+        End With
 
     End Sub
 
