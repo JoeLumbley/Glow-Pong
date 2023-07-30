@@ -1759,42 +1759,42 @@ Public Class Form1
 
     Private Sub DrawTwoPlayerInstructions()
 
-        Dim Loc As Point = InstructStartLocation
+        Dim Location As Point = InstructStartLocation
 
-        Loc.Offset(-21, 60)
+        Location.Offset(-21, 60)
 
         With Buffer.Graphics
 
             .DrawString("Start:",
-            InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+            InstructionsFont, Brushes.Orange, Location, AlineCenterMiddle)
 
-            Loc = InstructStartLocation
+            Location = InstructStartLocation
 
-            Loc.Offset(54, 60)
+            Location.Offset(54, 60)
 
             .DrawString("A",
-                InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
+            InstructionsFont, Brushes.White, Location, AlineCenterMiddle)
 
-            Loc = InstructStartLocation
+            Location = InstructStartLocation
 
-            Loc.Offset(0, 120)
+            Location.Offset(0, 120)
 
             .DrawString("Use W S to move left paddle.",
-                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+            InstructionsFont, Brushes.Orange, Location, AlineCenterMiddle)
 
-            Loc = InstructStartLocation
+            Location = InstructStartLocation
 
-            Loc.Offset(0, 160)
+            Location.Offset(0, 160)
 
             .DrawString("Use ↑ ↓ to move right paddle.",
-                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+            InstructionsFont, Brushes.Orange, Location, AlineCenterMiddle)
 
-            Loc = InstructStartLocation
+            Location = InstructStartLocation
 
-            Loc.Offset(0, 205)
+            Location.Offset(0, 205)
 
             .DrawString("First player to 10 points wins.",
-                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+            InstructionsFont, Brushes.Orange, Location, AlineCenterMiddle)
 
         End With
 
@@ -1802,42 +1802,42 @@ Public Class Form1
 
     Private Sub DrawOnePlayerInstructions()
 
-        Dim Loc As Point = InstructStartLocation
+        Dim Location As Point = InstructStartLocation
 
-        Loc.Offset(-21, 60)
+        Location.Offset(-21, 60)
 
         With Buffer.Graphics
 
             .DrawString("Start:",
-            InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+            InstructionsFont, Brushes.Orange, Location, AlineCenterMiddle)
 
-            Loc = InstructStartLocation
+            Location = InstructStartLocation
 
-            Loc.Offset(54, 60)
+            Location.Offset(54, 60)
 
             .DrawString("B",
-                InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
+            InstructionsFont, Brushes.White, Location, AlineCenterMiddle)
 
-            Loc = InstructStartLocation
+            Location = InstructStartLocation
 
-            Loc.Offset(0, 120)
+            Location.Offset(0, 120)
 
             .DrawString("Computer plays left paddle.",
-                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+            InstructionsFont, Brushes.Orange, Location, AlineCenterMiddle)
 
-            Loc = InstructStartLocation
+            Location = InstructStartLocation
 
-            Loc.Offset(0, 160)
+            Location.Offset(0, 160)
 
             .DrawString("Use ↑ ↓ to move right paddle.",
-                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+            InstructionsFont, Brushes.Orange, Location, AlineCenterMiddle)
 
-            Loc = InstructStartLocation
+            Location = InstructStartLocation
 
-            Loc.Offset(0, 205)
+            Location.Offset(0, 205)
 
             .DrawString("First player to 10 points wins.",
-                InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+            InstructionsFont, Brushes.Orange, Location, AlineCenterMiddle)
 
         End With
 
