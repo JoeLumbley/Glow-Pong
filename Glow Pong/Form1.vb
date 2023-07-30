@@ -470,7 +470,12 @@ Public Class Form1
 
         'Buffer.Graphics.Clear(Color.Black)
 
-        Buffer.Graphics.FillRectangle(CheckerboardBrush, ClientRectangle)
+        With Buffer.Graphics
+
+            'Draw background
+            .FillRectangle(CheckerboardBrush, ClientRectangle)
+
+        End With
 
         Select Case GameState
             Case GameStateEnum.EndScreen
@@ -752,7 +757,6 @@ Public Class Form1
 
             'Update paddle position.
             LeftPaddle.Y = Math.Round(LeftPaddlePos.Y)
-
 
             LeftPaddleMiddle = LeftPaddlePos.Y + LeftPaddle.Height / 2.0F
 
@@ -1674,8 +1678,12 @@ Public Class Form1
 
         End If
 
-        'Dim the frame.
-        Buffer.Graphics.FillRectangle(DimmerBrush, ClientRectangle)
+        With Buffer.Graphics
+
+            'Dim the frame.
+            .FillRectangle(DimmerBrush, ClientRectangle)
+
+        End With
 
         DrawPausedText()
 
@@ -2142,27 +2150,39 @@ Public Class Form1
 
     Private Sub DrawComputerPlayerIdentifier()
 
-        Buffer.Graphics.DrawString("CPU", InstructionsFont, Brushes.White, ClientSize.Width \ 2 \ 2, 20, AlineCenterMiddle)
+        With Buffer.Graphics
+
+            .DrawString("CPU", InstructionsFont, Brushes.White, ClientSize.Width \ 2 \ 2, 20, AlineCenterMiddle)
+
+        End With
 
     End Sub
 
     Private Sub DrawRightPaddleScore()
 
-        Buffer.Graphics.DrawString(RightPaddleScore, RightScore0Font, GreenGlow0Brush, RPadScoreLocation, AlineCenterMiddle)
-        Buffer.Graphics.DrawString(RightPaddleScore, RightScore1Font, GreenGlow1Brush, RPadScoreLocation, AlineCenterMiddle)
-        Buffer.Graphics.DrawString(RightPaddleScore, RightScore2Font, GreenGlow2Brush, RPadScoreLocation, AlineCenterMiddle)
-        Buffer.Graphics.DrawString(RightPaddleScore, RightScore3Font, GreenGlow3Brush, RPadScoreLocation, AlineCenterMiddle)
-        Buffer.Graphics.DrawString(RightPaddleScore, RightScore4Font, GreenGlow4Brush, RPadScoreLocation, AlineCenterMiddle)
+        With Buffer.Graphics
+
+            .DrawString(RightPaddleScore, RightScore0Font, GreenGlow0Brush, RPadScoreLocation, AlineCenterMiddle)
+            .DrawString(RightPaddleScore, RightScore1Font, GreenGlow1Brush, RPadScoreLocation, AlineCenterMiddle)
+            .DrawString(RightPaddleScore, RightScore2Font, GreenGlow2Brush, RPadScoreLocation, AlineCenterMiddle)
+            .DrawString(RightPaddleScore, RightScore3Font, GreenGlow3Brush, RPadScoreLocation, AlineCenterMiddle)
+            .DrawString(RightPaddleScore, RightScore4Font, GreenGlow4Brush, RPadScoreLocation, AlineCenterMiddle)
+
+        End With
 
     End Sub
 
     Private Sub DrawLeftPaddleScore()
 
-        Buffer.Graphics.DrawString(LeftPaddleScore, LeftScore0Font, LeftScore0Brush, LPadScoreLocation, AlineCenterMiddle)
-        Buffer.Graphics.DrawString(LeftPaddleScore, LeftScore1Font, LeftScore1Brush, LPadScoreLocation, AlineCenterMiddle)
-        Buffer.Graphics.DrawString(LeftPaddleScore, LeftScore2Font, LeftScore2Brush, LPadScoreLocation, AlineCenterMiddle)
-        Buffer.Graphics.DrawString(LeftPaddleScore, LeftScore3Font, LeftScore3Brush, LPadScoreLocation, AlineCenterMiddle)
-        Buffer.Graphics.DrawString(LeftPaddleScore, LeftScore4Font, LeftScore4Brush, LPadScoreLocation, AlineCenterMiddle)
+        With Buffer.Graphics
+
+            .DrawString(LeftPaddleScore, LeftScore0Font, LeftScore0Brush, LPadScoreLocation, AlineCenterMiddle)
+            .DrawString(LeftPaddleScore, LeftScore1Font, LeftScore1Brush, LPadScoreLocation, AlineCenterMiddle)
+            .DrawString(LeftPaddleScore, LeftScore2Font, LeftScore2Brush, LPadScoreLocation, AlineCenterMiddle)
+            .DrawString(LeftPaddleScore, LeftScore3Font, LeftScore3Brush, LPadScoreLocation, AlineCenterMiddle)
+            .DrawString(LeftPaddleScore, LeftScore4Font, LeftScore4Brush, LPadScoreLocation, AlineCenterMiddle)
+
+        End With
 
     End Sub
 
@@ -2371,35 +2391,39 @@ Public Class Form1
 
     Private Sub DrawStartScreenInstructions()
 
-        Dim Loc As Point
+        Dim Location As Point
 
-        Loc = InstructStartLocation
+        Location = InstructStartLocation
 
-        Loc.Offset(-173, 60)
+        Location.Offset(-173, 60)
 
-        Buffer.Graphics.DrawString("One player:",
-            InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+        With Buffer.Graphics
 
-        Loc = InstructStartLocation
+            .DrawString("One player:",
+            InstructionsFont, Brushes.Orange, Location, AlineCenterMiddle)
 
-        Loc.Offset(-50, 60)
+            Location = InstructStartLocation
 
-        Buffer.Graphics.DrawString("A",
-            InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
+            Location.Offset(-50, 60)
 
-        Loc = InstructStartLocation
+            .DrawString("A",
+            InstructionsFont, Brushes.White, Location, AlineCenterMiddle)
 
-        Loc.Offset(122, 60)
+            Location = InstructStartLocation
 
-        Buffer.Graphics.DrawString("Two players:",
-            InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+            Location.Offset(122, 60)
 
-        Loc = InstructStartLocation
+            .DrawString("Two players:",
+            InstructionsFont, Brushes.Orange, Location, AlineCenterMiddle)
 
-        Loc.Offset(255, 60)
+            Location = InstructStartLocation
 
-        Buffer.Graphics.DrawString("B",
-            InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
+            Location.Offset(255, 60)
+
+            .DrawString("B",
+            InstructionsFont, Brushes.White, Location, AlineCenterMiddle)
+
+        End With
 
     End Sub
 
@@ -2457,7 +2481,7 @@ Public Class Form1
             Location.Offset(82, 0)
 
             .DrawString("A",
-                InstructionsFont, Brushes.White, Location, AlineCenterMiddle)
+            InstructionsFont, Brushes.White, Location, AlineCenterMiddle)
 
         End With
 
