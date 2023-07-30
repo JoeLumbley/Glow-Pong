@@ -47,7 +47,7 @@ The game will open in a new window, ready to play.
 ## Downloading Visual Studio
 
 
-If don't have Visual Studio you can download it at:
+If you don't have Visual Studio download it at:
 
 https://visualstudio.microsoft.com/downloads/
 
@@ -61,7 +61,7 @@ https://visualstudio.microsoft.com/downloads/
 
 ## Let me know what you think.
 
-Leave a comment on the glow pong video.
+After you have played the game please leave a like or comment on the glow pong short.
 
 https://youtube.com/shorts/QSt3HXyfUx0?feature=share
 
