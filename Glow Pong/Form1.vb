@@ -2590,8 +2590,8 @@ Public Class Form1
     End Sub
 
     Private Sub CenterCourtLine()
+        'Centers the center court line in the client area of our form.
 
-        'Centers the court line in the client area of our form.
         CenterlineTop = New Point(ClientSize.Width \ 2, 0)
 
         CenterlineBottom = New Point(ClientSize.Width \ 2, ClientSize.Height)
@@ -2619,9 +2619,9 @@ Public Class Form1
 
         Text = "Glow Pong - Code with Joe"
 
-        SetStyle(ControlStyles.AllPaintingInWmPaint, True) ' True is better
+        SetStyle(ControlStyles.AllPaintingInWmPaint, True) 'True is better
 
-        SetStyle(ControlStyles.OptimizedDoubleBuffer, True) ' True is better
+        SetStyle(ControlStyles.OptimizedDoubleBuffer, True) 'True is better
 
     End Sub
 
