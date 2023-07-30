@@ -31,20 +31,12 @@
 
 'I'm making a video to explain the code on my YouTube channel.
 'https://www.youtube.com/@codewithjoe6074
+'
 
 Imports System.Runtime.InteropServices
 Imports System.Numerics
 
 Public Class Form1
-
-    'Private Enum GameStateEnum
-    '    StartScreen = 0
-    '    Instructions = 1
-    '    Serve = 2
-    '    Playing = 3
-    '    EndScreen = 4
-    '    Pause = 5
-    'End Enum
 
     Private Enum GameStateEnum
         StartScreen
