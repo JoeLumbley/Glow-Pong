@@ -2288,7 +2288,7 @@ Public Class Form1
         LeftPaddle.Height = 100
 
         LeftPaddlePos.X = 20
-        LeftPaddlePos.Y = ClientSize.Height \ 2 - LeftPaddle.Height \ 2 'Center vertically
+        LeftPaddlePos.Y = ClientSize.Height / 2.0F - LeftPaddle.Height / 2.0F 'Center vertically
 
         'Update paddle position.
         LeftPaddle.X = Math.Round(LeftPaddlePos.X)
@@ -2296,6 +2296,7 @@ Public Class Form1
 
         RightPaddle.Width = 25
         RightPaddle.Height = 100
+
         RightPaddlePos.X = ClientSize.Width - RightPaddle.Width - 20.0F 'Aline right 20 pix padding
         RightPaddlePos.Y = ClientSize.Height / 2.0F - RightPaddle.Height / 2.0F 'Center vertically
 
@@ -2317,7 +2318,7 @@ Public Class Form1
     Private Sub LayoutGame()
 
         'Center the left paddle vertically in the forms client area.
-        LeftPaddlePos.Y = ClientSize.Height \ 2 - LeftPaddle.Height \ 2
+        LeftPaddlePos.Y = ClientSize.Height / 2.0F - LeftPaddle.Height / 2.0F
 
         'Update paddle position.
         LeftPaddle.Y = Math.Round(LeftPaddlePos.Y)
@@ -2412,57 +2413,61 @@ Public Class Form1
 
     Private Sub DrawPausedText()
 
-        Dim Loc As Point
+        Dim Location As Point
 
-        Loc = ClientCenter
+        Location = ClientCenter
 
-        Loc.Offset(-135, 0)
+        Location.Offset(-135, 0)
 
-        DrawTitleGlow("P", Loc)
+        DrawTitleGlow("P", Location)
 
-        Loc = ClientCenter
+        Location = ClientCenter
 
-        Loc.Offset(-75, 0)
+        Location.Offset(-75, 0)
 
-        DrawTitleGlow("a", Loc)
+        DrawTitleGlow("a", Location)
 
-        Loc = ClientCenter
+        Location = ClientCenter
 
-        Loc.Offset(-19, 0)
+        Location.Offset(-19, 0)
 
-        DrawTitleGlow("u", Loc)
+        DrawTitleGlow("u", Location)
 
-        Loc = ClientCenter
+        Location = ClientCenter
 
-        Loc.Offset(32, 0)
+        Location.Offset(32, 0)
 
-        DrawTitleGlow("s", Loc)
+        DrawTitleGlow("s", Location)
 
-        Loc = ClientCenter
+        Location = ClientCenter
 
-        Loc.Offset(85, 0)
+        Location.Offset(85, 0)
 
-        DrawTitleGlow("e", Loc)
+        DrawTitleGlow("e", Location)
 
-        Loc = ClientCenter
+        Location = ClientCenter
 
-        Loc.Offset(140, 0)
+        Location.Offset(140, 0)
 
-        DrawTitleGlow("d", Loc)
+        DrawTitleGlow("d", Location)
 
-        Loc = InstructPauseLocation
+        Location = InstructPauseLocation
 
-        Loc.Offset(-21, 0)
+        Location.Offset(-21, 0)
 
-        Buffer.Graphics.DrawString("Resume:",
-            InstructionsFont, Brushes.Orange, Loc, AlineCenterMiddle)
+        With Buffer.Graphics
 
-        Loc = InstructPauseLocation
+            .DrawString("Resume:",
+            InstructionsFont, Brushes.Orange, Location, AlineCenterMiddle)
 
-        Loc.Offset(82, 0)
+            Location = InstructPauseLocation
 
-        Buffer.Graphics.DrawString("A",
-            InstructionsFont, Brushes.White, Loc, AlineCenterMiddle)
+            Location.Offset(82, 0)
+
+            .DrawString("A",
+                InstructionsFont, Brushes.White, Location, AlineCenterMiddle)
+
+        End With
 
     End Sub
 
@@ -2524,55 +2529,55 @@ Public Class Form1
 
     Private Sub DrawTitle()
 
-        Dim Loc As Point
+        Dim Location As Point
 
-        Loc = TitleLocation
+        Location = TitleLocation
 
-        Loc.Offset(-272, 0)
+        Location.Offset(-272, 0)
 
-        DrawTitleGlow("G", Loc)
+        DrawTitleGlow("G", Location)
 
-        Loc = TitleLocation
+        Location = TitleLocation
 
-        Loc.Offset(-205, 0)
+        Location.Offset(-205, 0)
 
-        DrawTitleGlow("L", Loc)
+        DrawTitleGlow("L", Location)
 
-        Loc = TitleLocation
+        Location = TitleLocation
 
-        Loc.Offset(-140, 0)
+        Location.Offset(-140, 0)
 
-        DrawTitleGlow("O", Loc)
+        DrawTitleGlow("O", Location)
 
-        Loc = TitleLocation
+        Location = TitleLocation
 
-        Loc.Offset(-54, 0)
+        Location.Offset(-54, 0)
 
-        DrawTitleGlow("W", Loc)
+        DrawTitleGlow("W", Location)
 
-        Loc = TitleLocation
+        Location = TitleLocation
 
-        Loc.Offset(52, 0)
+        Location.Offset(52, 0)
 
-        DrawTitleGlow("P", Loc)
+        DrawTitleGlow("P", Location)
 
-        Loc = TitleLocation
+        Location = TitleLocation
 
-        Loc.Offset(124, 0)
+        Location.Offset(124, 0)
 
-        DrawTitleGlow("O", Loc)
+        DrawTitleGlow("O", Location)
 
-        Loc = TitleLocation
+        Location = TitleLocation
 
-        Loc.Offset(198, 0)
+        Location.Offset(198, 0)
 
-        DrawTitleGlow("N", Loc)
+        DrawTitleGlow("N", Location)
 
-        Loc = TitleLocation
+        Location = TitleLocation
 
-        Loc.Offset(272, 0)
+        Location.Offset(272, 0)
 
-        DrawTitleGlow("G", Loc)
+        DrawTitleGlow("G", Location)
 
         'Buffer.Graphics.DrawString(TitleText, TitleFont, Brushes.Orange, TitleLocation, AlineCenterMiddle)
 
@@ -2580,11 +2585,15 @@ Public Class Form1
 
     Private Sub DrawTitleGlow(Text As String, Location As Point)
 
-        Buffer.Graphics.DrawString(Text, TitleGlow0Font, GreenGlow0Brush, Location, AlineCenterMiddle)
-        Buffer.Graphics.DrawString(Text, TitleGlow1Font, GreenGlow1Brush, Location, AlineCenterMiddle)
-        Buffer.Graphics.DrawString(Text, TitleGlow2Font, GreenGlow2Brush, Location, AlineCenterMiddle)
-        Buffer.Graphics.DrawString(Text, TitleGlow3Font, GreenGlow3Brush, Location, AlineCenterMiddle)
-        Buffer.Graphics.DrawString(Text, TitleGlow4Font, GreenGlow4Brush, Location, AlineCenterMiddle)
+        With Buffer.Graphics
+
+            .DrawString(Text, TitleGlow0Font, GreenGlow0Brush, Location, AlineCenterMiddle)
+            .DrawString(Text, TitleGlow1Font, GreenGlow1Brush, Location, AlineCenterMiddle)
+            .DrawString(Text, TitleGlow2Font, GreenGlow2Brush, Location, AlineCenterMiddle)
+            .DrawString(Text, TitleGlow3Font, GreenGlow3Brush, Location, AlineCenterMiddle)
+            .DrawString(Text, TitleGlow4Font, GreenGlow4Brush, Location, AlineCenterMiddle)
+
+        End With
 
     End Sub
 
@@ -2619,6 +2628,7 @@ Public Class Form1
         Text = "Glow Pong - Code with Joe"
 
         SetStyle(ControlStyles.AllPaintingInWmPaint, True) ' True is better
+
         SetStyle(ControlStyles.OptimizedDoubleBuffer, True) ' True is better
 
     End Sub
@@ -2927,21 +2937,29 @@ Public Class Form1
 
     Private Sub DrawGlowingOrchid(Rect As Rectangle)
 
-        Buffer.Graphics.DrawRectangle(Orchid0Pen, Rect)
-        Buffer.Graphics.DrawRectangle(Orchid1Pen, Rect)
-        Buffer.Graphics.DrawRectangle(Orchid2Pen, Rect)
-        Buffer.Graphics.DrawRectangle(Orchid3Pen, Rect)
-        Buffer.Graphics.DrawRectangle(Orchid4Pen, Rect)
+        With Buffer.Graphics
+
+            .DrawRectangle(Orchid0Pen, Rect)
+            .DrawRectangle(Orchid1Pen, Rect)
+            .DrawRectangle(Orchid2Pen, Rect)
+            .DrawRectangle(Orchid3Pen, Rect)
+            .DrawRectangle(Orchid4Pen, Rect)
+
+        End With
 
     End Sub
 
     Private Sub DrawGlowingSkyBlue(Rect As Rectangle)
 
-        Buffer.Graphics.DrawRectangle(SkyBlue0Pen, Rect)
-        Buffer.Graphics.DrawRectangle(SkyBlue1Pen, Rect)
-        Buffer.Graphics.DrawRectangle(SkyBlue2Pen, Rect)
-        Buffer.Graphics.DrawRectangle(SkyBlue3Pen, Rect)
-        Buffer.Graphics.DrawRectangle(SkyBlue4Pen, Rect)
+        With Buffer.Graphics
+
+            .DrawRectangle(SkyBlue0Pen, Rect)
+            .DrawRectangle(SkyBlue1Pen, Rect)
+            .DrawRectangle(SkyBlue2Pen, Rect)
+            .DrawRectangle(SkyBlue3Pen, Rect)
+            .DrawRectangle(SkyBlue4Pen, Rect)
+
+        End With
 
     End Sub
 
