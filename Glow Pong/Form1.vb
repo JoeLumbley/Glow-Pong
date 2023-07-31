@@ -3043,4 +3043,71 @@ End Class
 'TextureBrush Class
 'https://learn.microsoft.com/en-us/dotnet/api/system.drawing.texturebrush?view=windowsdesktop-7.0&source=recommendations
 '
+'Vector2 Struct
+'https://learn.microsoft.com/en-us/dotnet/api/system.numerics.vector2?view=net-7.0
+'
+'DateAndTime.Now Property
+'https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.dateandtime.now?view=net-7.0
+'
+'TimeSpan.TotalSeconds Property
+'https://learn.microsoft.com/en-us/dotnet/api/system.timespan.totalseconds?view=net-7.0
+'
+'+= Addition Assignment Operator
+'https://learn.microsoft.com/en-us/dotnet/visual-basic/language-reference/operators/addition-assignment-operator
+'
+'-= Subtraction Assignment Operator
+'https://learn.microsoft.com/en-us/dotnet/visual-basic/language-reference/operators/subtraction-assignment-operator
+'
+'Math.Round Method
+'https://learn.microsoft.com/en-us/dotnet/api/system.math.round?view=net-7.0
+'
+'Constant and Literal Data Types
+'https://learn.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/constants-enums/constant-and-literal-data-types
+'
+'Literals and Type Coercion
+'https://learn.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/constants-enums/constant-and-literal-data-types#literals-and-type-coercion
+'
+'Rectangle Struct
+'https://learn.microsoft.com/en-us/dotnet/api/system.drawing.rectangle?view=net-7.0
+'
+'Rectangle.IntersectsWith(Rectangle) Method
+'https://learn.microsoft.com/en-us/dotnet/api/system.drawing.rectangle.intersectswith?view=net-7.0#system-drawing-rectangle-intersectswith(system-drawing-rectangle)
+'
+'Graphics.DrawRectangle Method
+'https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics.drawrectangle?view=windowsdesktop-7.0&source=recommendations
+'
+'Pen Class
+'https://learn.microsoft.com/en-us/dotnet/api/system.drawing.pen?view=windowsdesktop-7.0&source=recommendations
+'
+'SolidBrush Class
+'https://learn.microsoft.com/en-us/dotnet/api/system.drawing.solidbrush?view=windowsdesktop-7.0
+'
+'Font Class
+'https://learn.microsoft.com/en-us/dotnet/api/system.drawing.font?view=windowsdesktop-7.0
+'
+'Graphics.DrawString Method
+'https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics.drawstring?view=windowsdesktop-7.0&source=recommendations
+'
+'Graphics.FillRectangle Method
+'https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics.fillrectangle?view=windowsdesktop-7.0&source=recommendations
+'
+'PaintEventArgs Class
+'https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.painteventargs?view=windowsdesktop-7.0&source=recommendations
+'
+'Overriding the OnPaint Method
+'https://learn.microsoft.com/en-us/dotnet/desktop/winforms/controls/overriding-the-onpaint-method?view=netframeworkdesktop-4.8
+'
+'Rendering a Windows Forms Control
+'https://learn.microsoft.com/en-us/dotnet/desktop/winforms/controls/rendering-a-windows-forms-control?view=netframeworkdesktop-4.8
+'
+'Control.ClientRectangle Property
+'https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.control.clientrectangle?view=windowsdesktop-7.0
+'
+'Graphics Class
+'https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics?view=windowsdesktop-7.0
+'
+'Getting Started with Graphics Programming
+'https://learn.microsoft.com/en-us/dotnet/desktop/winforms/advanced/getting-started-with-graphics-programming?view=netframeworkdesktop-4.8
+'
+'
 '
