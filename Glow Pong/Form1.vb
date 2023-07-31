@@ -266,17 +266,17 @@ Public Class Form1
     Private LeftPaddleHit As Boolean = False
     Private LeftPaddleHitTimer As Integer = 0
 
-    Private Orchid0Pen As New Pen(Color.FromArgb(40, Color.DeepPink), 20) 'Bottom
-    Private Orchid1Pen As New Pen(Color.FromArgb(50, Color.DeepPink), 17)
-    Private Orchid2Pen As New Pen(Color.FromArgb(64, Color.DeepPink), 13)
-    Private Orchid3Pen As New Pen(Color.FromArgb(150, Color.DeepPink), 8)
-    Private Orchid4Pen As New Pen(Color.FromArgb(255, Color.Pink), 5) 'Top
+    Private Orchid0Pen As New Pen(Color.FromArgb(40, Color.DeepPink), 33) 'Bottom
+    Private Orchid1Pen As New Pen(Color.FromArgb(40, Color.DeepPink), 25)
+    Private Orchid2Pen As New Pen(Color.FromArgb(64, Color.DeepPink), 17)
+    Private Orchid3Pen As New Pen(Color.FromArgb(255, Color.DeepPink), 11)
+    Private Orchid4Pen As New Pen(Color.FromArgb(255, Color.Pink), 6) 'Top
 
-    Private SkyBlue0Pen As New Pen(Color.FromArgb(40, Color.Blue), 20) 'Bottom
-    Private SkyBlue1Pen As New Pen(Color.FromArgb(50, Color.Blue), 17)
-    Private SkyBlue2Pen As New Pen(Color.FromArgb(64, Color.Blue), 13)
-    Private SkyBlue3Pen As New Pen(Color.FromArgb(128, Color.Blue), 8)
-    Private SkyBlue4Pen As New Pen(Color.FromArgb(255, Color.LightBlue), 5) 'Top
+    Private SkyBlue0Pen As New Pen(Color.FromArgb(40, Color.Blue), 33) 'Bottom
+    Private SkyBlue1Pen As New Pen(Color.FromArgb(40, Color.Blue), 25)
+    Private SkyBlue2Pen As New Pen(Color.FromArgb(64, Color.Blue), 17)
+    Private SkyBlue3Pen As New Pen(Color.FromArgb(255, Color.Blue), 11)
+    Private SkyBlue4Pen As New Pen(Color.FromArgb(255, Color.LightBlue), 6) 'Top
 
     Private DimmerBrush As New SolidBrush(Color.FromArgb(200, Color.Black))
 
