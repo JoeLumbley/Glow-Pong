@@ -7,7 +7,13 @@
     <StartupObject>Sub Main</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
+    <ApplicationIcon>Resources\app.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\app.ico" />
+    <Content Include="Resources\Icon1.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Import Include="System.Data" />

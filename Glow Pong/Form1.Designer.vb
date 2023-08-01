@@ -23,14 +23,19 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Form1))
         Timer1 = New Timer(components)
         SuspendLayout()
+        ' 
+        ' Timer1
+        ' 
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Form1"
         Text = "Form1"
         ResumeLayout(False)
