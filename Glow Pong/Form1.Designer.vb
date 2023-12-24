@@ -23,11 +23,19 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Timer1 = New Timer(components)
+        VibrationTimerB = New Timer(components)
+        VibrationTimerA = New Timer(components)
         SuspendLayout()
         ' 
         ' Timer1
+        ' 
+        ' 
+        ' VibrationTimerB
+        ' 
+        ' 
+        ' VibrationTimerA
         ' 
         ' 
         ' Form1
@@ -42,4 +50,6 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents VibrationTimerB As Timer
+    Friend WithEvents VibrationTimerA As Timer
 End Class

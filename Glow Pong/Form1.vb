@@ -1186,6 +1186,10 @@ Public Class Form1
 
                 VibrateRight(AControllerID, 30000)
 
+                VibrationTimerA.Interval = 400
+
+                VibrationTimerA.Start()
+
             End If
 
             'Push the ball to the paddles right edge.
@@ -1221,6 +1225,10 @@ Public Class Form1
             Else
 
                 VibrateRight(BControllerID, 30000)
+
+                VibrationTimerB.Interval = 400
+
+                VibrationTimerB.Start()
 
             End If
 
@@ -2977,6 +2985,20 @@ Public Class Form1
         End With
 
     End Sub
+
+    Private Sub VibrationTimerB_Tick(sender As Object, e As EventArgs) Handles VibrationTimerB.Tick
+
+        VibrateRight(BControllerID, 0)
+
+    End Sub
+
+    Private Sub VibrationTimerA_Tick(sender As Object, e As EventArgs) Handles VibrationTimerA.Tick
+
+        VibrateRight(AControllerID, 0)
+
+    End Sub
+
+
 
 End Class
 
