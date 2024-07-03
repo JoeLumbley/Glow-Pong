@@ -1184,11 +1184,11 @@ Public Class Form1
 
             If NumberOfPlayers = 2 Then
 
-                VibrateRight(AControllerID, 30000)
+                'VibrateRight(AControllerID, 30000)
 
-                VibrationTimerA.Interval = 400
+                'VibrationTimerA.Interval = 400
 
-                VibrationTimerA.Start()
+                'VibrationTimerA.Start()
 
             End If
 
@@ -1220,15 +1220,15 @@ Public Class Form1
 
             If NumberOfPlayers = 1 Then
 
-                VibrateRight(AControllerID, 30000)
+                'VibrateRight(AControllerID, 30000)
 
             Else
 
-                VibrateRight(BControllerID, 30000)
+                'VibrateRight(BControllerID, 30000)
 
-                VibrationTimerB.Interval = 400
+                'VibrationTimerB.Interval = 400
 
-                VibrationTimerB.Start()
+                'VibrationTimerB.Start()
 
             End If
 
@@ -2988,13 +2988,13 @@ Public Class Form1
 
     Private Sub VibrationTimerB_Tick(sender As Object, e As EventArgs) Handles VibrationTimerB.Tick
 
-        VibrateRight(BControllerID, 0)
+        'VibrateRight(BControllerID, 0)
 
     End Sub
 
     Private Sub VibrationTimerA_Tick(sender As Object, e As EventArgs) Handles VibrationTimerA.Tick
 
-        VibrateRight(AControllerID, 0)
+        'VibrateRight(AControllerID, 0)
 
     End Sub
 
