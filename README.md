@@ -16,7 +16,7 @@ Ping pong with a glow effect.
 
 This game is resizable, pausable and has a computer player.
 
-Supports keyboard, mouse and Xbox controllers including the vibration effect (rumble).
+Supports keyboard, mouse and Xbox controllers.
 
 Works on Windows 10 and 11.
 
