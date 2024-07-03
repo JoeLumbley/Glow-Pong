@@ -1450,6 +1450,8 @@ Public Class Form1
 
                 PlayBounceSound()
 
+                MoveMousePointerOffPlayArea()
+
             End If
 
             If AControllerX = True Or BControllerX = True Then
@@ -1458,6 +1460,8 @@ Public Class Form1
 
                 PlayBounceSound()
 
+                MoveMousePointerOffPlayArea()
+
             End If
 
             If SpaceBarDown = True Or BKeyDown = True Or XKeyDown = True Then
@@ -1465,6 +1469,8 @@ Public Class Form1
                 SetupGame()
 
                 PlayBounceSound()
+
+                MoveMousePointerOffPlayArea()
 
             End If
 
@@ -1476,6 +1482,8 @@ Public Class Form1
 
                 PlayBounceSound()
 
+                MoveMousePointerOffPlayArea()
+
             End If
 
             If SpaceBarDown = True Or AKeyDown = True Then
@@ -1484,9 +1492,18 @@ Public Class Form1
 
                 PlayBounceSound()
 
+                MoveMousePointerOffPlayArea()
+
             End If
 
         End If
+
+    End Sub
+
+    Private Sub MoveMousePointerOffPlayArea()
+        'Move mouse pointer off the play area.
+
+        Cursor.Position = PointToScreen(New Point(ClientRectangle.Width - 3, ClientRectangle.Height \ 2))
 
     End Sub
 
@@ -2731,14 +2748,14 @@ Public Class Form1
 
     Private Sub Form1_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove
 
-        'Are the players playing?
-        If GameState = GameStateEnum.Playing Then
-            'Yes, the players are playing.
+        ''Are the players playing?
+        'If GameState = GameStateEnum.Playing Then
+        '    'Yes, the players are playing.
 
-            'Move mouse pointer off the play area.
-            Cursor.Position = PointToScreen(New Point(ClientRectangle.Width - 3, ClientRectangle.Height \ 2))
+        '    'Move mouse pointer off the play area.
+        '    Cursor.Position = PointToScreen(New Point(ClientRectangle.Width - 3, ClientRectangle.Height \ 2))
 
-        End If
+        'End If
 
     End Sub
 
